@@ -1,0 +1,41 @@
+
+
+CREATE COMPUTE MODULE JMS_ERROR_SF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE ref REFERENCE TO InputExceptionList.*[1];
+      DECLARE File CHARACTER;
+      DECLARE Line CHARACTER;
+      DECLARE Number INTEGER; 
+      DECLARE Text CHARACTER;
+      DECLARE tstamp CHARACTER; 	
+     SET tstamp=CURRENT_TIMESTAMP;
+        WHILE  LASTMOVE (ref) DO
+	    MOVE ref LASTCHILD;
+	    IF ref.Number is not null THEN
+        SET File=ref.File;
+        SET OutputRoot.XMLNSC.error.file=File;
+        SET Line=ref.Line;
+        SET OutputRoot.XMLNSC.error.line=Line;
+        SET Number=ref.Number;
+        SET OutputRoot.XMLNSC.error.number=Number;
+        SET Text =ref.Text;
+       SET OutputRoot.XMLNSC.error.text=Text;
+        SET OutputRoot.XMLNSC.error.time_stamp=tstamp;
+        
+	    END IF;
+		ENd while;
+		CALL ERROR_PROCEDURE(File,Line,Number,Text,tstamp);
+	END;
+END MODULE;
+CREATE PROCEDURE ERROR_PROCEDURE(IN File CHARACTER,IN Line CHARACTER,IN Number INTEGER,IN Text CHARACTER,IN tstamp CHARACTER)
+LANGUAGE DATABASE
+EXTERNAL NAME "ERROR_LOG_PRO";
+		
