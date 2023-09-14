@@ -1,0 +1,20 @@
+DECLARE ns NAMESPACE 'http://www.example.org/Tax/';
+
+
+CREATE COMPUTE MODULE SOAP_TAX_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE indx INTEGER;
+		DECLARE inRef REFERENCE TO InputRoot.SOAP.Body.ns:SOAP_TAX_IN.INDEXX;
+		SET indx=inRef;
+		DECLARE query CHARACTER 'select * from taxable where indexx=?';
+		SET OutputRoot.SOAP.Body.ns:SOAP_TAX_OUT.out[]=PASSTHRU(query.RANDB Values(indx));
+	END;
+END MODULE;

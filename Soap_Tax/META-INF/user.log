@@ -1,0 +1,124 @@
+
+==============================================
+
+!Thu Nov 03 16:19:10 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF3.msgflow.
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF3.msgflow to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:10 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF2.msgflow.
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF2.msgflow to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:10 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF1.msgflow.
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF1.msgflow to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF.msgflow.
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF.msgflow to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\IBMdefined\org\w3\www\xml\_1998\namespace\xml.xsd.
+Successfully added file SOAP_TAXABLE\IBMdefined\org\w3\www\xml\_1998\namespace\xml.xsd to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\IBMdefined\org\xmlsoap\schemas\soap\envelope\soapenv11.xsd.
+Successfully added file SOAP_TAXABLE\IBMdefined\org\xmlsoap\schemas\soap\envelope\soapenv11.xsd to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\IBMdefined\soap.xsd.
+Successfully added file SOAP_TAXABLE\IBMdefined\soap.xsd to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF1_Compute.esql.
+Dependent ESQL file SOAP_TAX_MF_Compute.esql is added to the BAR file.
+
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF1_Compute.esql to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF2_Compute.esql.
+Dependent ESQL file SOAP_TAX_MF_Compute.esql is added to the BAR file.
+
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF2_Compute.esql to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF3_Compute.esql.
+Dependent ESQL file SOAP_TAX_MF_Compute.esql is added to the BAR file.
+
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF3_Compute.esql to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\SOAP_TAX_MF_Compute.esql.
+Successfully added file SOAP_TAXABLE\SOAP_TAX_MF_Compute.esql to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\Tax.wsdl.
+Successfully added file SOAP_TAXABLE\Tax.wsdl to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\Tax.xsd.
+Successfully added file SOAP_TAXABLE\Tax.xsd to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\Tax_InlineSchema1.xsd.
+Successfully added file SOAP_TAXABLE\Tax_InlineSchema1.xsd to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\application.descriptor.
+Successfully added file SOAP_TAXABLE\application.descriptor to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file SOAP_TAXABLE\application.descriptor to BAR file.
+
+==============================================
+
+!Thu Nov 03 16:19:11 IST 2022
+
+Processing file SOAP_TAXABLE\application.descriptor.
+Successfully added file SOAP_TAXABLE\application.descriptor to BAR file.
+Elapsed time: 0.001 second(s).
+
+Successfully added file SOAP_TAXABLE\application.descriptor to BAR file.
