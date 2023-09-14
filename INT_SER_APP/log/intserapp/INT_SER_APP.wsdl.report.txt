@@ -1,0 +1,14 @@
+
+
+Importing file: C:\Users\Sreenivas Bandaru\IBM\ACET12\workspace\INT_SER_APP\INT_SER_APP.wsdl
+
+The WSDL import will proceed with bindings INT_SER_APPHttpBinding.
+Creating wsdl schema document for file:///C:/Users/Sreenivas Bandaru/IBM/ACET12/workspace/INT_SER_APP/INT_SER_APP.wsdl.
+Parsing wsdl binding {http://INT_SER_APP}INT_SER_APPHttpBinding.
+Parsing wsdl binding input operation1.
+Parsing wsdl binding output operation1.
+Processing doc style for operation operation1.
+Populating WSDL schema INT_SER_APP.xsd.
+Creating file INT_SER_APP.xsd in the workspace.
+Creating file INT_SER_APP_InlineSchema1.xsd in the workspace.
+Copying source WSDL INT_SER_APP.wsdl to INT_SER_APP.wsdl.
