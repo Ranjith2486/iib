@@ -1,0 +1,35 @@
+
+
+CREATE COMPUTE MODULE GroupComplete_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		
+--		DECLARE I INTEGER 1;
+--		DECLARE sch_col REFERENCE TO InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR[I];
+--		WHILE(LASTMOVE(sch_col)) DO
+--		SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+--			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.College.CName;
+--			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.SName;
+--			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.College.Board;
+--			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.Board;
+--			SET I=I+1;
+--			MOVE sch_col NEXTSIBLING;
+--			
+--		END WHILE;
+--        
+
+        SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+		SET OutputRoot.XMLNSC.res.CName = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.College.CName;
+		SET OutputRoot.XMLNSC.res.SName = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.School.SName;
+		SET OutputRoot.XMLNSC.res.CBoard = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.College.Board;
+		SET OutputRoot.XMLNSC.res.SBoard = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.School.Board;
+		
+	END;
+END MODULE;

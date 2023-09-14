@@ -1,0 +1,11 @@
+
+
+CREATE COMPUTE MODULE Service1_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.XMLNSC.School.SName='PPHS';
+		SET OutputRoot.XMLNSC.School.Board='SSC';
+		RETURN TRUE;
+	END;
+
+END MODULE;

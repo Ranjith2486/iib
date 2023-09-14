@@ -1,0 +1,12 @@
+
+
+CREATE COMPUTE MODULE Service2_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+			SET OutputRoot.XMLNSC.College.CName='LOYOLA';
+		SET OutputRoot.XMLNSC.College.Board='OU';
+		RETURN TRUE;
+	END;
+
+
+END MODULE;
