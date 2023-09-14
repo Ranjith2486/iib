@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema targetNamespace="http://www.ibm.com/iib/msl/json"><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/iib/msl/json">  
+    <xsd:complexType block="#all" name="JSONArray_1">  
+    <xsd:sequence>  
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="Item" nillable="true"> 
+        <xsd:complexType> 
+          <xsd:sequence> 
+            <xsd:element name="Menu" nillable="true"> 
+              <xsd:complexType> 
+                <xsd:sequence> 
+                  <xsd:element name="Category" nillable="true" type="xsd:string"/> 
+                  <xsd:element name="List" nillable="true"> 
+                    <xsd:complexType> 
+                      <xsd:sequence> 
+                        <xsd:element name="Item1" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item2" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item3" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item4" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item5" nillable="true" type="xsd:string"/> 
+                      </xsd:sequence> 
+                    </xsd:complexType> 
+                  </xsd:element> 
+                </xsd:sequence> 
+              </xsd:complexType> 
+            </xsd:element> 
+            <xsd:element name="NonMenu" nillable="true"> 
+              <xsd:complexType> 
+                <xsd:sequence> 
+                  <xsd:element name="Category" nillable="true" type="xsd:string"/> 
+                  <xsd:element name="List" nillable="true"> 
+                    <xsd:complexType> 
+                      <xsd:sequence> 
+                        <xsd:element name="Item1" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item2" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item3" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item4" nillable="true" type="xsd:string"/> 
+                        <xsd:element name="Item5" nillable="true" type="xsd:string"/> 
+                      </xsd:sequence> 
+                    </xsd:complexType> 
+                  </xsd:element> 
+                </xsd:sequence> 
+              </xsd:complexType> 
+            </xsd:element> 
+          </xsd:sequence> 
+        </xsd:complexType> 
+      </xsd:element>  
+    </xsd:sequence>  
+  </xsd:complexType>  
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="/hotel.xsd" var="var2"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" targetNamespace="http://www.ibm.com/iib/msl/json" var="var1"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="Map_Node2_MF_Mapping">
+        <input path="$var2/mb:msg(HotelMenu,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_HotelMenu"/>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,Properties)" var="ComIbmMessageAssembly_JSON">
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONArray_1" ref="var1"/>
+        </output>
+        <move>
+            <input path="$ComIbmMessageAssembly_HotelMenu/Properties"/>
+            <output path="$ComIbmMessageAssembly_JSON/Properties"/>
+        </move>
+        <local>
+            <input path="$ComIbmMessageAssembly_HotelMenu/HotelMenu"/>
+            <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/Item"/>
+            <foreach>
+                <input path="Menu"/>
+                <output path="Menu"/>
+                <local>
+                    <input path="List"/>
+                    <output path="List"/>
+                    <move>
+                        <input path="Item1"/>
+                        <output path="Item1"/>
+                    </move>
+                    <move>
+                        <input path="Item2"/>
+                        <output path="Item2"/>
+                    </move>
+                    <move>
+                        <input path="Item3"/>
+                        <output path="Item3"/>
+                    </move>
+                    <move>
+                        <input path="Item4"/>
+                        <output path="Item4"/>
+                    </move>
+                    <move>
+                        <input path="Item5"/>
+                        <output path="Item5"/>
+                    </move>
+                </local>
+                <move>
+                    <input path="Category"/>
+                    <output path="Category"/>
+                </move>
+            </foreach>
+            <foreach>
+                <input path="Menu"/>
+                <output path="NonMenu"/>
+                <local>
+                    <input path="List"/>
+                    <output path="List"/>
+                    <move>
+                        <input path="Item1"/>
+                        <output path="Item1"/>
+                    </move>
+                    <move>
+                        <input path="Item2"/>
+                        <output path="Item2"/>
+                    </move>
+                    <move>
+                        <input path="Item3"/>
+                        <output path="Item3"/>
+                    </move>
+                    <move>
+                        <input path="Item4"/>
+                        <output path="Item4"/>
+                    </move>
+                    <move>
+                        <input path="Item5"/>
+                        <output path="Item5"/>
+                    </move>
+                </local>
+                <move>
+                    <input path="Category"/>
+                    <output path="Category"/>
+                </move>
+            </foreach>
+        </local>
+    </mappingDeclaration>
+</mappingRoot>
