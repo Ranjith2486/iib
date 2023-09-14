@@ -1,0 +1,60 @@
+BROKER SCHEMA ExceptionHanLib
+
+
+CREATE COMPUTE MODULE Exc_subFlow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		--SET OutputRoot = InputRoot;
+		DECLARE Error Row;
+		DECLARE errorRef REFERENCE To Error;
+		CALL getException(InputExceptionList,errorRef);
+		If(FIELDNAME(InputRoot.[<])='XMLNSC') THEN
+		CREATE FIELD OutputRoot.XMLNSC.ErrorDetails;
+		DECLARE OutRef REFERENCE TO OutputRoot.XMLNSC.ErrorDetails;
+		SET OutRef.TimeStamp=CAST(CURRENT_TIMESTAMP AS Char FORMAT 'dd-MM-YYYY HH:MM:SS');
+		SET OutRef.ErrorCode=errorRef.Errorcode;
+		SET OutRef.ExceptionType=errorRef.ExceptionType;
+		SET OutRef.ErrorMessage=errorRef.ErrorMessage;
+		SET OutRef.ErrorLocation=errorRef.ErrorLocation;
+		ELSEIF(FIELDNAME(InputRoot.[<])='SOAP') THEN
+		CREATE Field OutputRoot.Soap.Body.*:Fault;
+		DECLARE OutRef1 REFERENCE TO OutputRoot.Soap.Body.*:Fault;
+		SET OutRef1.faultstring='Exception while processing';
+		SET OutRef1.detail.ErrorCode=errorRef.Errorcode;
+		SET OutRef1.detail.ExceptionType=errorRef.ExceptionType;
+		SET OutRef1.detail.ErrorMessage=errorRef.ErrorMessage;
+		SET OutRef1.detail.ErrorLocation=errorRef.ErrorLocation;
+		SET OutRef1.detail.TimeStamp=CAST(CURRENT_TIMESTAMP AS Char FORMAT 'dd-MM-YYYY HH:MM:SS');
+	    ELSEIF(CONTAINS(InputRoot.HTTPInputHeader."X-Original-HTTP-Command",'GET') OR FIELDNAME(InputRoot.[<])='JSON') THEN 
+		CREATE FIELD OutputRoot.JSON.Data.ErrorDetails;
+		DECLARE OutRef2 REFERENCE TO OutputRoot.JSON.Data.ErrorDetails;
+		SET OutRef2.TimeStamp=CAST(CURRENT_TIMESTAMP AS Char FORMAT 'dd-MM-YYYY HH:MM:SS');
+		SET OutRef2.ErrorCode=errorRef.Errorcode;
+		SET OutRef2.ExceptionType=errorRef.ExceptionType;
+		SET OutRef2.ErrorMessage=errorRef.ErrorMessage;
+		SET OutRef2.ErrorLocation=errorRef.ErrorLocation;
+	END IF;
+	END;
+	Create Procedure getException(IN InputExceptionList REFERENCE,IN ErrorRef REFERENCE) Begin
+		DECLARE inExRef REFERENCE To InputExceptionList.[1];
+		While ENDSWITH(FIELDNAME(inExRef),'Exception') Do
+			SET ErrorRef.Errorcode=inExRef.Number;
+			SET ErrorRef.ExceptionType=FIELDNAME(inExRef);
+			SET ErrorRef.ErrorMessage=inExRef.Text;
+		For insertRef AS inExRef.Insert[] Do
+			Set ErrorRef.ErrorMessage=ErrorRef.ErrorMessage ||',' || insertRef.Text||'. ';
+		END FOR;
+		If(inExRef.Label <>'') THEN 
+		SET ErrorRef.ErrorLocation=inExRef.Label;
+		END IF;
+		Move inExRef Lastchild;
+	End while;
+	END;
+	
+END MODULE;
