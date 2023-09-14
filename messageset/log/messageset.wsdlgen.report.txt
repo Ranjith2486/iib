@@ -1,0 +1,54 @@
+Summary of selections: WSDL files generation
+
+The selected message set:
+/messageset/messageset
+
+The generated WSDL files will go into:
+/messageset
+
+The version of WSDL to be generated: 1.1
+The version of SOAP to be generated: 1.1
+
+The selected style for WSDL generation: document
+The WSDL Namespace: http://tempuri.org/messageset
+
+The following operations will be created:
+AddStudent (Request-Response)
+GetStudent (Request-Response)
+
+The following bindings are selected:
+SOAP over http.
+
+The following WSDL files will be generated:
+/messageset/messagesetService.wsdl
+
+
+Creating new WSDL Service file '\messageset\messagesetService.wsdl'
+Setting wsdl definition name for 'messagesetService.wsdl': messageset
+Setting wsdl definition targetNamespace for 'messagesetService.wsdl': http://tempuri.org/messageset
+Adding namespace: xmlns for 'messagesetService.wsdl':soap=http://schemas.xmlsoap.org/wsdl/soap/
+Adding namespace: xmlns for 'messagesetService.wsdl':xsd=http://www.w3.org/2001/XMLSchema
+Adding namespace: xmlns for 'messagesetService.wsdl':wsdl=http://schemas.xmlsoap.org/wsdl/
+Creating new WSDL Interface file '\messageset\messagesetService.wsdl'
+Creating portType for WSDL Interface: messagesetPortType
+Creating portType operation 'AddStudent'
+Creating message 'AddStudent_in'
+Creating message 'AddStudent_out'
+Creating message 'AddStudent_fault1'
+Creating portType operation 'GetStudent'
+Creating message 'GetStudent_in'
+Creating message 'GetStudent_out'
+Creating message 'GetStudent_fault1'
+Creating SOAP over HTTP binding 'messagesetSOAP_HTTP_Binding'
+Creating binding operation 'AddStudent' for binding 'messagesetSOAP_HTTP_Binding'
+Creating binding operation 'GetStudent' for binding 'messagesetSOAP_HTTP_Binding'
+Creating SOAP over HTTP service 'messagesetSOAP_HTTP_Service'
+Creating port 'messagesetSOAP_HTTP_Port' for service 'messagesetSOAP_HTTP_Service'
+
+Elapsed time processing this WSDL definition: 1.692343230374E9 seconds
+Number of warnings for this WSDL definition: 0
+
+
+Number of files processed: 1
+
+

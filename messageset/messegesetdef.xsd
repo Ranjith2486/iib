@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="AddStudentRequest">
+    <xsd:sequence>
+      <xsd:element ref="name"/>
+      <xsd:element ref="qualification"/>
+      <xsd:element ref="role"/>
+      <xsd:element ref="salary"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddStudentResponse">
+    <xsd:sequence>
+      <xsd:element ref="message"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetStudentRequest">
+    <xsd:sequence>
+      <xsd:element ref="name"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetStudentResponse">
+    <xsd:sequence>
+      <xsd:element ref="name"/>
+      <xsd:element ref="qualification"/>
+      <xsd:element ref="role"/>
+      <xsd:element ref="salary"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="name" type="xsd:string"/>
+  <xsd:element name="role" type="xsd:string"/>
+  <xsd:element name="qualification" type="xsd:string"/>
+  <xsd:element name="salary" type="xsd:string"/>
+  <xsd:element name="message" type="xsd:string"/>
+  <xsd:element name="AddStudentRequest" type="AddStudentRequest">
+  </xsd:element>
+  <xsd:element name="AddStudentResponse" type="AddStudentResponse">
+  </xsd:element>
+  <xsd:element name="GetStudentRequest" type="GetStudentRequest">
+  </xsd:element>
+  <xsd:element name="GetStudentResponse" type="GetStudentResponse">
+  </xsd:element>
+  <xsd:complexType name="Fault">
+    <xsd:sequence>
+      <xsd:element ref="FaultText"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Fault" type="Fault">
+  </xsd:element>
+  <xsd:element name="FaultText" type="xsd:string"/>
+</xsd:schema>
