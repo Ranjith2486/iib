@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy:Deploy xmlns:deploy="http://www.ibm.com/xmlns/prod/wmb/deploy/6.0.0" overrideConfigurableProperties="true" includeESQL="false">
+  <deployables>
+    <deployable deployed="true" barResourceTimeStamp="1667451485624" workspaceResource="/REST_TAXABLE/gen/REST_TAXABLE.msgflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\gen\REST_TAXABLE.msgflow.&#xA;Successfully added file REST_TAXABLE\gen\REST_TAXABLE.msgflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="gen\REST_TAXABLE.msgflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667452081086" workspaceResource="/REST_TAXABLE/getGet_by_cost.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_cost.subflow.&#xA;Successfully added file REST_TAXABLE\getGet_by_cost.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_cost.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667451596887" workspaceResource="/REST_TAXABLE/getGet_by_cost_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_cost_Compute.esql.&#xA;Successfully added file REST_TAXABLE\getGet_by_cost_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_cost_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667383222362" workspaceResource="/REST_TAXABLE/getGet_by_index.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_index.subflow.&#xA;Successfully added file REST_TAXABLE\getGet_by_index.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_index.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667566553487" workspaceResource="/REST_TAXABLE/getGet_by_index_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_index_Compute.esql.&#xA;Successfully added file REST_TAXABLE\getGet_by_index_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_index_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667384258122" workspaceResource="/REST_TAXABLE/getGet_by_tax.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_tax.subflow.&#xA;Successfully added file REST_TAXABLE\getGet_by_tax.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_tax.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667451377054" workspaceResource="/REST_TAXABLE/getGet_by_tax_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_tax_Compute.esql.&#xA;Successfully added file REST_TAXABLE\getGet_by_tax_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_tax_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667452094047" workspaceResource="/REST_TAXABLE/getGet_by_total.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_total.subflow.&#xA;Successfully added file REST_TAXABLE\getGet_by_total.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_total.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667451570682" workspaceResource="/REST_TAXABLE/getGet_by_total_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\getGet_by_total_Compute.esql.&#xA;Successfully added file REST_TAXABLE\getGet_by_total_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_by_total_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667451485621" workspaceResource="/REST_TAXABLE/restapi.descriptor">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\restapi.descriptor.&#xA;Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.&#xA;Elapsed time: 0 second(s).&#xA;&#xA;Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.&#xA;" severity="0"/>
+      <barEntry name="restapi.descriptor"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667451485621" workspaceResource="/REST_TAXABLE/swagger.json">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_TAXABLE\swagger.json.&#xA;Successfully added file REST_TAXABLE\swagger.json to BAR file.&#xA;Elapsed time: 0 second(s).&#xA;&#xA;Successfully added file REST_TAXABLE\swagger.json to BAR file.&#xA;" severity="0"/>
+      <barEntry name="swagger.json"/>
+    </deployable>
+  </deployables>
+</deploy:Deploy>

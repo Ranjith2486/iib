@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+<CompiledMessageFlow name="getGet_by_tax" type="subflow">
+<ConfigurableProperty override="RANDB" uri="getGet_by_tax#Compute.dataSource"/>
+<ConfigurableProperty uri="getGet_by_tax#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="getGet_by_tax#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="getGet_by_cost" type="subflow">
+<ConfigurableProperty override="RANDB" uri="getGet_by_cost#Compute.dataSource"/>
+<ConfigurableProperty uri="getGet_by_cost#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="getGet_by_cost#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="gen.REST_TAXABLE">
+<ConfigurableProperty override="3" uri="gen.REST_TAXABLE#additionalInstances"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#processingTimeoutSec"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#processingTimeoutAction"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#wlmPolicy"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#commitCount"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#commitInterval"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#coordinatedTransaction"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#consumerPolicySet"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#providerPolicySet"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#providerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#securityProfileName"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#monitoringProfile"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#startMode"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="/rest_taxable/v1*" uri="gen.REST_TAXABLE#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty override="JSON" uri="gen.REST_TAXABLE#HTTP Input.faultFormat"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="gen.REST_TAXABLE#HTTP Reply.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="getGet_by_total" type="subflow">
+<ConfigurableProperty override="RANDB" uri="getGet_by_total#Compute.dataSource"/>
+<ConfigurableProperty uri="getGet_by_total#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="getGet_by_total#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="getGet_by_index" type="subflow">
+<ConfigurableProperty override="RANDB" uri="getGet_by_index#Compute.dataSource"/>
+<ConfigurableProperty uri="getGet_by_index#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="getGet_by_index#Compute.validateMaster"/>
+</CompiledMessageFlow>
+</Broker>

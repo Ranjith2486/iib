@@ -1,0 +1,34 @@
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Successfully added file REST_TAXABLE\gen\REST_TAXABLE.msgflow to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_cost.subflow to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_cost_Compute.esql to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_index.subflow to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_index_Compute.esql to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_tax.subflow to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_tax_Compute.esql to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_total.subflow to BAR file.
+
+Successfully added file REST_TAXABLE\getGet_by_total_Compute.esql to BAR file.
+
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+
+Successfully added file REST_TAXABLE\swagger.json to BAR file.
+
+Successfully added file REST_TAXABLE\swagger.json to BAR file.

@@ -1,0 +1,121 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "REST_TAXABLE",
+    "version" : "1.0.0",
+    "description" : "REST_TAXABLE"
+  },
+  "paths" : {
+    "/get_by_index" : {
+      "get" : {
+        "operationId" : "getGet_by_index",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/OUTPUT"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve get_by_index",
+        "parameters" : [ {
+          "name" : "INDEXX",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    },
+    "/get_by_tax" : {
+      "get" : {
+        "operationId" : "getGet_by_tax",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/INPUT"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve get_by_tax",
+        "parameters" : [ {
+          "name" : "TAX",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    },
+    "/get_by_cost" : {
+      "get" : {
+        "operationId" : "getGet_by_cost",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/INPUT"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve get_by_cost",
+        "parameters" : [ {
+          "name" : "cost",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    },
+    "/get_by_total" : {
+      "get" : {
+        "operationId" : "getGet_by_total",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/INPUT"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve get_by_total",
+        "parameters" : [ {
+          "name" : "total",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/rest_taxable/v1",
+  "definitions" : {
+    "INPUT" : {
+      "type" : "object",
+      "properties" : {
+        "INDEXX" : {
+          "type" : "string"
+        },
+        "ITEMM" : {
+          "type" : "string"
+        },
+        "COST" : {
+          "type" : "string"
+        },
+        "TAX" : {
+          "type" : "string"
+        },
+        "TOTAL" : {
+          "type" : "string"
+        }
+      }
+    },
+    "OUTPUT" : {
+      "type" : "object",
+      "properties" : {
+        "RES" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

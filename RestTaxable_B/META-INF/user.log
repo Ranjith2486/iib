@@ -1,0 +1,93 @@
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\gen\REST_TAXABLE.msgflow.
+Successfully added file REST_TAXABLE\gen\REST_TAXABLE.msgflow to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_cost.subflow.
+Successfully added file REST_TAXABLE\getGet_by_cost.subflow to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_cost_Compute.esql.
+Successfully added file REST_TAXABLE\getGet_by_cost_Compute.esql to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_index.subflow.
+Successfully added file REST_TAXABLE\getGet_by_index.subflow to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_index_Compute.esql.
+Successfully added file REST_TAXABLE\getGet_by_index_Compute.esql to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_tax.subflow.
+Successfully added file REST_TAXABLE\getGet_by_tax.subflow to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_tax_Compute.esql.
+Successfully added file REST_TAXABLE\getGet_by_tax_Compute.esql to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_total.subflow.
+Successfully added file REST_TAXABLE\getGet_by_total.subflow to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\getGet_by_total_Compute.esql.
+Successfully added file REST_TAXABLE\getGet_by_total_Compute.esql to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\restapi.descriptor.
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\restapi.descriptor.
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file REST_TAXABLE\restapi.descriptor to BAR file.
+
+==============================================
+
+!Fri Nov 04 18:27:20 IST 2022
+
+Processing file REST_TAXABLE\swagger.json.
+Successfully added file REST_TAXABLE\swagger.json to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file REST_TAXABLE\swagger.json to BAR file.
