@@ -1,0 +1,18 @@
+
+
+CREATE COMPUTE MODULE While_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		   CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE inref REFERENCE TO InputRoot.XMLNSC.data;
+		WHILE LASTMOVE(inref) DO
+			SET OutputRoot.JSON.Data.Res=inref;
+			Move inref LASTCHILD;
+		END WHILE;
+	END;
+END MODULE;
