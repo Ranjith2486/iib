@@ -1,0 +1,57 @@
+
+
+CREATE COMPUTE MODULE Exp_SubFlow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		   CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE error ROW;
+		DECLARE errorRef REFERENCE TO error;
+		CALL myExpProc(InputExceptionList,errorRef);
+		
+		IF (FIELDNAME(InputRoot.[<])='XMLNSC') THEN
+			CREATE FIELD OutputRoot.XMLNSC.ErrorDetails;
+			DECLARE outRef REFERENCE TO OutputRoot.XMLNSC.ErrorDetails;
+			SET outRef.ErrorCode=errorRef.ErrorCode;
+			SET outRef.ErrorType=errorRef.ErrorType;
+			SET outRef.ErrorMessage=errorRef.ErrorMessage;
+			SET outRef.ErrorLabel=errorRef.ErrorLabel;
+			
+		ELSEIF (FIELDNAME(InputRoot.[<])='JSON') THEN
+			CREATE FIELD OutputRoot.JSON.Data.ErrorDetails;
+			DECLARE outRef REFERENCE TO OutputRoot.JSON.Data.ErrorDetails;
+			SET outRef.ErrorCode=errorRef.ErrorCode;
+			SET outRef.ErrorType=errorRef.ErrorType;
+			SET outRef.ErrorMessage=errorRef.ErrorMessage;
+			SET outRef.ErrorLabel=errorRef.ErrorLabel;
+			
+		END IF;
+		CALL dbExpLog(errorRef.ErrorCode,errorRef.ErrorType,errorRef.ErrorMessage,errorRef.ErrorLabel);
+	END;
+	CREATE PROCEDURE  myExpProc(IN InputExceptionList REFERENCE,IN ErrorRef REFERENCE )
+BEGIN
+	DECLARE inRef REFERENCE TO InputExceptionList.[1];
+	WHILE  ENDSWITH(FIELDNAME(inRef),'Exception')DO
+		SET ErrorRef.ErrorCode=inRef.Number;
+		SET ErrorRef.ErrorType=FIELDNAME(inRef);
+		SET ErrorRef.ErrorMessage=inRef.Text;
+		FOR insertRef AS inRef.Insert[]  DO
+			SET ErrorRef.ErrorMessage=ErrorRef.ErrorMessage||', '||insertRef.Text;
+		END FOR;
+		IF inRef.Label<>'' THEN
+			SET ErrorRef.ErrorLabel=inRef.Label;
+		END IF;
+		Move inRef LASTCHILD;
+	END WHILE;
+	END;
+END MODULE;
+
+CREATE PROCEDURE  dbExpLog(IN ErrorCode INTEGER,IN ErrorType CHARACTER,IN ErrorMessage CHARACTER,IN ErrorLabel CHARACTER)
+LANGUAGE DATABASE
+EXTERNAL NAME "ExpProc";
+
