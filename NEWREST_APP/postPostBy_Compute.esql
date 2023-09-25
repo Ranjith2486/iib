@@ -1,0 +1,35 @@
+
+
+CREATE COMPUTE MODULE postPostBy_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE inRef REFERENCE TO InputRoot.JSON.Data.Std;
+		DECLARE std_name,std_role,qualification,salary CHARACTER;
+		SET std_name=inRef.name;
+		SET std_role=inRef.role;
+		SET qualification=inRef.qualification;
+		SET salary=inRef.salary;
+		INSERT INTO  Database.std(STD_NAME,STD_ROLE,QUALIFICATION,SALARY ) VALUES (std_name,std_role,qualification,salary);
+		IF SQLCODE=0 THEN
+			SET OutputRoot.JSON.Data.Res='Record Inserted Successfully';
+		ELSE
+			SET OutputRoot.JSON.Data.error='Not Inserted';
+		END IF;
+	END;
+END MODULE;

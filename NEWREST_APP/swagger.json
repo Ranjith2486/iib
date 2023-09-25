@@ -1,0 +1,49 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "NEWREST_APP",
+    "version" : "1.0.0",
+    "description" : "NEWREST_APP"
+  },
+  "paths" : {
+    "/getBy" : {
+      "get" : {
+        "operationId" : "getGetBy",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve getBy",
+        "parameters" : [ ]
+      }
+    },
+    "/postBy" : {
+      "post" : {
+        "operationId" : "postPostBy",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a postBy",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "type" : "string"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/newrest_app/v1"
+}
