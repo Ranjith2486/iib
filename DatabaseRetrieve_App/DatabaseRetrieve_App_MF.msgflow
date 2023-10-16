@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmDatabaseRetrieve.msgnode="ComIbmDatabaseRetrieve.msgnode" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:mbmonitor="http://www.ibm.com/wbi/2008/eflow_mbmonitor" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility"
+    nsURI="DatabaseRetrieve_App_MF.msgflow" nsPrefix="DatabaseRetrieve_App_MF.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="SQUARE">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="DatabaseRetrieve_App_MF" bundleName="DatabaseRetrieve_App_MF" pluginId="DatabaseRetrieve_App"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/DatabaseRetrieve_App/icons/full/obj16/DatabaseRetrieve_App_MF.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/DatabaseRetrieve_App/icons/full/obj30/DatabaseRetrieve_App_MF.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="84,60" URLSpecifier="/DatabaseRetrivein" messageDomainProperty="XMLNSC">
+        <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
+        <monitorEvents eventSourceDescription="Transaction start" eventSourceName="HTTP Input.transaction.Start" eventIdentity="HTTP Input.TransactionStart">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator dataLocation="$Root/XMLNSC/TransactionId" eventCorrelation="dataLocation"/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="base64Binary"/>
+            <eventName literal="HTTP Input.TransactionStart"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventSourceDescription="Transaction end" eventSourceName="HTTP Input.transaction.End" eventIdentity="HTTP Input.TransactionEnd">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="base64Binary"/>
+            <eventName literal="HTTP Input.TransactionEnd"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventSourceDescription="Failure terminal" eventSourceName="HTTP Input.terminal.failure" eventIdentity="HTTP Input.FailureTerminal">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="HTTP Input.FailureTerminal"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventSourceDescription="Out terminal" eventSourceName="HTTP Input.terminal.out" eventIdentity="HTTP Input.OutTerminal">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="HTTP Input.OutTerminal"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+      </nodes>
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="441,56">
+        <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
+        <monitorEvents eventSourceDescription="In terminal" eventSourceName="HTTP Reply.terminal.in" eventIdentity="HTTP Reply.InTerminal">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="HTTP Reply.InTerminal"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventSourceDescription="Failure terminal" eventSourceName="HTTP Reply.terminal.failure" eventIdentity="HTTP Reply.FailureTerminal">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="HTTP Reply.FailureTerminal"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventSourceDescription="Out terminal" eventSourceName="HTTP Reply.terminal.out" eventIdentity="HTTP Reply.OutTerminal">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator/>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="HTTP Reply.OutTerminal"/>
+            <eventFilter dataLocation="true()" isXPath="true"/>
+          </eventXMLDoc>
+        </monitorEvents>
+      </nodes>
+      <nodes xmi:type="ComIbmDatabaseRetrieve.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="191,56" dataSourceName="{JDBC_P}:JDBC" copyMessage="true" sqlQuery="SELECT STD.STD_NAME, STD.STD_ROLE, STD.QUALIFICATION, STD.SALARY&#xA;FROM STD&#xA;WHERE STD.STD_NAME = ?&#xA;ORDER BY STD.STD_NAME ASC, STD.STD_ROLE ASC, STD.QUALIFICATION ASC, STD.SALARY ASC" tableNameComboValues="0,0,0,0,0,0~STD" columnNameComboValues="2,3,0,1,2,0~QUALIFICATION,SALARY,STD_NAME,STD_ROLE" operatorComboValues="0,0,0,0,2,0~="
+          valueTypeComboValues="0,0,0,0,2,0~Element" columnValueComboValues="2,3,0,1,0~STD.SALARY">
+        <translation xmi:type="utility:ConstantString" string="Database Retrieve"/>
+        <queryElements tableName="STD" columnName="STD_NAME" operator="ASC" valueType="None" value="None"/>
+        <queryElements tableName="STD" columnName="STD_ROLE" operator="ASC" valueType="None" value="None"/>
+        <queryElements tableName="STD" columnName="QUALIFICATION" operator="ASC" valueType="None" value="None"/>
+        <queryElements tableName="STD" columnName="SALARY" operator="ASC" valueType="None" value="None"/>
+        <queryElements tableName="STD" columnName="STD_NAME" operator="=" valueType="Element" value="$InputRoot/XMLNSC/std/name"/>
+        <dataElements columnName="STD.STD_NAME" messageElement="$OutputRoot/XMLNSC/details/name"/>
+        <dataElements columnName="STD.STD_ROLE" messageElement="$OutputRoot/XMLNSC/details/role"/>
+        <dataElements columnName="STD.QUALIFICATION" messageElement="$OutputRoot/XMLNSC/details/qualification"/>
+        <dataElements columnName="STD.SALARY" messageElement="$OutputRoot/XMLNSC/details/salary"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="334,56" computeExpression="esql://routine/#DatabaseRetrieve_App_MF_Compute.Main">
+        <translation xmi:type="utility:ConstantString" string="Compute"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard/>
+  </eClassifiers>
+</ecore:EPackage>
