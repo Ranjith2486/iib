@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Prc_OpenApi",
+    "version": "1.0.0",
+    "description": "Prc_OpenApi"
+  },
+  "servers": [
+    {
+      "url": "/prc_openapi/v1"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "MySchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "qualification": {
+            "type": "string"
+          },
+          "salary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/PostPath": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/MySchema"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        }
+      },
+      "parameters": []
+    }
+  }
+}
