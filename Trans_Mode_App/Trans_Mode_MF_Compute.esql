@@ -1,0 +1,16 @@
+
+
+CREATE COMPUTE MODULE Trans_Mode_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN FALSE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+		PROPAGATE TO TERMINAL 0;
+		PROPAGATE TO TERMINAL 1;
+	END;
+END MODULE;
