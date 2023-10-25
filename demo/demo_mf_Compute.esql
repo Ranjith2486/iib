@@ -1,0 +1,65 @@
+
+
+CREATE COMPUTE MODULE demo_mf_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		--CALL insertdata();
+		--CALL updateData();
+		RETURN TRUE;
+	END;
+
+	
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		
+		DECLARE ref REFERENCE TO InputRoot.XMLNSC.Data;
+--		DECLARE name,role,qualification,salary CHARACTER;
+--		set name=ref.name;
+--		set role=ref.role;
+--		set qualification=ref.qualification;
+--		set salary=ref.salary;
+		
+	   -- insert into Database.std values(name,role,qualification,salary);
+	   DECLARE i INTEGER 1;
+	 DECLARE query CHARACTER 'select * from std';
+	 
+	 IF i=1  THEN
+	 	 SET OutputRoot.XMLNSC.RES.data[i]=PASSTHRU(query.RANDB);
+	 ELSE
+	 	SET OutputRoot.XMLNSC.RES.data[i]='Index U mentioned not satisfied';
+	 	--throw user exception message 7652 values('Integer failed exception');
+	 END IF; 
+	
+	END;
+	CREATE PROCEDURE insertdata ( )
+	BEGIN
+				DECLARE ref REFERENCE TO InputRoot.XMLNSC.Data;
+		DECLARE name,role,qualification,salary CHARACTER;
+		set name=ref.name;
+		set role=ref.role;
+		set qualification=ref.qualification;
+		set salary=ref.salary;
+		
+	    insert into Database.std values(name,role,qualification,salary);
+	    IF SQLCODE=0 THEN
+	    	SET OutputRoot.JSON.Data.RES='Inserted successfully';
+	    ELSE
+	    	SET OutputRoot.JSON.Data.RES='Not inserted';
+	    END IF;
+	END;
+	CREATE PROCEDURE updateData ( )
+	BEGIN
+		DECLARE ref REFERENCE TO InputRoot.XMLNSC.Data;
+		DECLARE name,salary CHARACTER;
+		SET name=ref.name;
+		SET salary=ref.salary;
+		Update Database.std as s SET salary=s.SALARY where name=s.NAME;
+		 IF SQLCODE=0 THEN
+	    	SET OutputRoot.JSON.Data.RES='Updated successfully';
+	    ELSE
+	    	SET OutputRoot.JSON.Data.RES='Not Updated';
+	    END IF;
+	END;
+	
+END MODULE;
