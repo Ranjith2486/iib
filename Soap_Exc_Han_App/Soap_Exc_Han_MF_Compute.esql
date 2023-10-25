@@ -1,0 +1,27 @@
+
+DECLARE ns NAMESPACE 'http://www.example.org/Soap_Exc_WSDL_File/';
+
+
+CREATE COMPUTE MODULE Soap_Exc_Han_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		   CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE inRef REFERENCE TO InputRoot.SOAP.Body.ns:NewOperation;
+		DECLARE name,role,qualification,salary CHARACTER;
+		SET name=inRef.name;
+		SET role=inRef.role;
+		SET qualification=inRef.qualification;
+		SET salary=inRef.salary;
+		INSERT INTO Database.std(STD_NAME,STD_ROLE,QUALIFICATION,SALARY) VALUES (name,role,qualification,salary);
+		IF SQLCODE=0 THEN
+			SET OutputRoot.SOAP.Body.ns:NewOperationResponse.response='Inserted Record';
+		ELSE
+			SET OutputRoot.SOAP.Body.ns:NewOperationResponse.response='Not Inserted Record';
+		END IF;
+	END;
+END MODULE;
