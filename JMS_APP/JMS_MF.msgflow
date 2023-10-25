@@ -6,10 +6,10 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/JMS_APP/icons/full/obj16/JMS_MF.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/JMS_APP/icons/full/obj30/JMS_MF.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmJMSClientOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="631,132" destinationQueueName="JMS_DEST_OUT" locationJndiBindings="file:/C:/JMS/" connectionFactoryName="JMS_CON_OUT">
+      <nodes xmi:type="ComIbmJMSClientOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="484,129" destinationQueueName="JMS_DEST_OUT" locationJndiBindings="file:/C:/JMS/" connectionFactoryName="JMS_CON_OUT">
         <translation xmi:type="utility:ConstantString" string="JMS Output"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="389,131" computeExpression="esql://routine/#JMS_MF_Compute.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="254,129" computeExpression="esql://routine/#JMS_MF_Compute.Main">
         <translation xmi:type="utility:ConstantString" string="Compute"/>
       </nodes>
       <nodes xmi:type="ComIbmJMSClientInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="31,129" sourceQueueName="JMS_DEST_IN" locationJndiBindings="file:/C:/JMS/" connectionFactoryName="JMS_CON_IN" messageDomainProperty="XMLNSC">

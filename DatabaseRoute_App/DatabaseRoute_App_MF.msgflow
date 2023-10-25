@@ -23,7 +23,7 @@
         <queryElements tableName="STD" columnName="SALARY" operator="ASC" valueType="None" value="None"/>
         <queryElements tableName="STD" columnName="STD_NAME" operator="=" valueType="Element" value="$Root/XMLNSC/std/name"/>
         <filterTable filterPattern="$Root/XMLNSC/std/name='Ranjith'" routingOutputTerminal="Match"/>
-        <filterTable filterPattern="$Root/XMLNSC/std/name='Ravi'" routingOutputTerminal="Out1"/>
+        <filterTable filterPattern="$Root/XMLNSC/std/name='deep'" routingOutputTerminal="Out1"/>
         <filterTable filterPattern="$Root/XMLNSC/std/name='Praveen'" routingOutputTerminal="Out2"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
