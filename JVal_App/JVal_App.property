@@ -1,0 +1,16 @@
+BIP1033E: Invalid parameters: '-b'. 
+
+The following flag(s) are invalid, missing, or cannot be used together: '-b'. 
+
+Reissue the command specifying valid options and flags.
+
+BIP1048I: This command displays information about a BAR file. 
+
+Syntax:  
+ mqsireadbar -b barFileName [-r] [-v traceFileName]  
+  
+ Command options:  
+ '-b barFileName' The name of the BAR file to display.  
+ '-r' Recursively display the contents of applications and libraries.  
+ '-v traceFileName' Verbose internal trace is sent to the specified file.  
+
