@@ -1,0 +1,29 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "APP_Rest_OpenAPI",
+    "version": "1.0.0",
+    "description": "APP_Rest_OpenAPI"
+  },
+  "servers": [
+    {
+      "url": "/app_rest_openapi/v1"
+    }
+  ],
+  "paths": {
+    "/Path_OpenAPI": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "servers": [],
+        "requestBody": {
+          "content": {}
+        }
+      }
+    }
+  }
+}
