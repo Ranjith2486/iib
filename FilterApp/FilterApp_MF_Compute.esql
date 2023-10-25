@@ -1,0 +1,9 @@
+
+
+CREATE COMPUTE MODULE FilterApp_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+	SET OutputRoot.JSON.Data.Res='Netbanking Payment successfull';
+		RETURN TRUE;
+	END;
+END MODULE;

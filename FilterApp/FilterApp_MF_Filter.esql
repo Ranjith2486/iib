@@ -1,0 +1,15 @@
+
+
+CREATE FILTER MODULE FilterApp_MF_Filter
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		IF(Root.XMLNSC.Customer.paymentType='Netbanking') THEN
+		RETURN TRUE;
+	ELSEIF(Root.XMLNSC.Customer.paymentType='Card')THEN
+		RETURN FALSE;
+	ELSE
+		RETURN UNKNOWN;
+	END IF;
+	END;
+
+END MODULE;
