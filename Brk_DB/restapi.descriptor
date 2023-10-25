@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:restapiDescriptor xmlns="http://com.ibm.etools.mft.descriptor.base" xmlns:ns2="http://com.ibm.etools.mft.descriptor.restapi" definitionType="swagger_20" definitionFile="swagger.json" implementation="gen/REST_FORD_ESCORTAPP.msgflow" https="false" definitionWithExtRef="false" faultFormat="JSON">
+    <ns2:operations>
+        <ns2:operation name="getGet_By_Mileage" implementation="getGet_By_Mileage.subflow"/>
+        <ns2:operation name="getGet_By_Price" implementation="getGet_By_Price.subflow"/>
+        <ns2:operation name="getGet_By_Year" implementation="getGet_By_Year.subflow"/>
+    </ns2:operations>
+    <ns2:errorHandlers>
+        <ns2:errorHandler type="CATCH" implementation="REST_FORD_ESCORTAPPInputCatchHandler.subflow"/>
+        <ns2:errorHandler type="FAILURE" implementation="REST_FORD_ESCORTAPPInputFailureHandler.subflow"/>
+        <ns2:errorHandler type="TIMEOUT" implementation="REST_FORD_ESCORTAPPInputTimeoutHandler.subflow"/>
+    </ns2:errorHandlers>
+</ns2:restapiDescriptor>

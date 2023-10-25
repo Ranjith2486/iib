@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy:Deploy xmlns:deploy="http://www.ibm.com/xmlns/prod/wmb/deploy/6.0.0" overrideConfigurableProperties="true" includeESQL="false">
+  <deployables>
+    <deployable deployed="true" barResourceTimeStamp="1668604944022" workspaceResource="/REST_FORD_ESCORTAPP/REST_FORD_ESCORTAPPInputCatchHandler.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler.subflow.&#xA;Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="REST_FORD_ESCORTAPPInputCatchHandler.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668604262702" workspaceResource="/REST_FORD_ESCORTAPP/REST_FORD_ESCORTAPPInputCatchHandler_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler_Compute.esql.&#xA;Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="REST_FORD_ESCORTAPPInputCatchHandler_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668604944052" workspaceResource="/REST_FORD_ESCORTAPP/REST_FORD_ESCORTAPPInputFailureHandler.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler.subflow.&#xA;Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="REST_FORD_ESCORTAPPInputFailureHandler.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668604142566" workspaceResource="/REST_FORD_ESCORTAPP/REST_FORD_ESCORTAPPInputFailureHandler_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler_Compute.esql.&#xA;Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="REST_FORD_ESCORTAPPInputFailureHandler_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668604935527" workspaceResource="/REST_FORD_ESCORTAPP/REST_FORD_ESCORTAPPInputTimeoutHandler.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler.subflow.&#xA;Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="REST_FORD_ESCORTAPPInputTimeoutHandler.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668604297492" workspaceResource="/REST_FORD_ESCORTAPP/REST_FORD_ESCORTAPPInputTimeoutHandler_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler_Compute.esql.&#xA;Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="REST_FORD_ESCORTAPPInputTimeoutHandler_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668580276845" workspaceResource="/REST_FORD_ESCORTAPP/exception_rest_sub_flow_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\exception_rest_sub_flow_Compute.esql.&#xA;Successfully added file REST_FORD_ESCORTAPP\exception_rest_sub_flow_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="exception_rest_sub_flow_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668581324397" workspaceResource="/REST_FORD_ESCORTAPP/gen/REST_FORD_ESCORTAPP.msgflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\gen\REST_FORD_ESCORTAPP.msgflow.&#xA;Successfully added file REST_FORD_ESCORTAPP\gen\REST_FORD_ESCORTAPP.msgflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="gen\REST_FORD_ESCORTAPP.msgflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668604668217" workspaceResource="/REST_FORD_ESCORTAPP/getGet_By_Mileage.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\getGet_By_Mileage.subflow.&#xA;Successfully added file REST_FORD_ESCORTAPP\getGet_By_Mileage.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_By_Mileage.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668504368897" workspaceResource="/REST_FORD_ESCORTAPP/getGet_By_Mileage_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\getGet_By_Mileage_Compute.esql.&#xA;Successfully added file REST_FORD_ESCORTAPP\getGet_By_Mileage_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_By_Mileage_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1667383540144" workspaceResource="/REST_FORD_ESCORTAPP/getGet_By_Price.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\getGet_By_Price.subflow.&#xA;Successfully added file REST_FORD_ESCORTAPP\getGet_By_Price.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_By_Price.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668505180864" workspaceResource="/REST_FORD_ESCORTAPP/getGet_By_Price_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\getGet_By_Price_Compute.esql.&#xA;Successfully added file REST_FORD_ESCORTAPP\getGet_By_Price_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_By_Price_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668605806420" workspaceResource="/REST_FORD_ESCORTAPP/getGet_By_Year.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\getGet_By_Year.subflow.&#xA;Successfully added file REST_FORD_ESCORTAPP\getGet_By_Year.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_By_Year.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668505193216" workspaceResource="/REST_FORD_ESCORTAPP/getGet_By_Year_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\getGet_By_Year_Compute.esql.&#xA;Successfully added file REST_FORD_ESCORTAPP\getGet_By_Year_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="getGet_By_Year_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668580773898" workspaceResource="/REST_FORD_ESCORTAPP/restapi.descriptor">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\restapi.descriptor.&#xA;Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.&#xA;Elapsed time: 0 second(s).&#xA;&#xA;Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.&#xA;" severity="0"/>
+      <barEntry name="restapi.descriptor"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1668580773897" workspaceResource="/REST_FORD_ESCORTAPP/swagger.json">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file REST_FORD_ESCORTAPP\swagger.json.&#xA;Successfully added file REST_FORD_ESCORTAPP\swagger.json to BAR file.&#xA;Elapsed time: 0 second(s).&#xA;&#xA;Successfully added file REST_FORD_ESCORTAPP\swagger.json to BAR file.&#xA;" severity="0"/>
+      <barEntry name="swagger.json"/>
+    </deployable>
+  </deployables>
+</deploy:Deploy>

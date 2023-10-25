@@ -1,0 +1,95 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "REST_FORD_ESCORTAPP",
+    "version" : "1.0.0",
+    "description" : "REST_FORD_ESCORTAPP"
+  },
+  "paths" : {
+    "/Get_By_Year" : {
+      "get" : {
+        "operationId" : "getGet_By_Year",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/OUTPUT"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve Get_By_Year",
+        "parameters" : [ {
+          "name" : "YEAR",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    },
+    "/Get_By_Price" : {
+      "get" : {
+        "operationId" : "getGet_By_Price",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/OUTPUT"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve Get_By_Price",
+        "parameters" : [ {
+          "name" : "PRICE",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    },
+    "/Get_By_Mileage" : {
+      "get" : {
+        "operationId" : "getGet_By_Mileage",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/OUTPUT"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve Get_By_Mileage",
+        "parameters" : [ {
+          "name" : "MILEAGE",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/rest_ford_escortapp/v1",
+  "definitions" : {
+    "INPUT" : {
+      "type" : "object",
+      "properties" : {
+        "YEAR" : {
+          "type" : "string"
+        },
+        "MILEAGE" : {
+          "type" : "string"
+        },
+        "PRICE" : {
+          "type" : "string"
+        }
+      }
+    },
+    "OUTPUT" : {
+      "type" : "object",
+      "properties" : {
+        "RESULT" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

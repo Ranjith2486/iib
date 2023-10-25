@@ -1,0 +1,128 @@
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\gen\REST_FORD_ESCORTAPP.msgflow.
+Successfully added file REST_FORD_ESCORTAPP\gen\REST_FORD_ESCORTAPP.msgflow to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler.subflow.
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler.subflow to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler_Compute.esql.
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler_Compute.esql to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler.subflow.
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler.subflow to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler_Compute.esql.
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler_Compute.esql to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler.subflow.
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler.subflow to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler_Compute.esql.
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler_Compute.esql to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\exception_rest_sub_flow_Compute.esql.
+Successfully added file REST_FORD_ESCORTAPP\exception_rest_sub_flow_Compute.esql to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\getGet_By_Mileage.subflow.
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Mileage.subflow to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\getGet_By_Mileage_Compute.esql.
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Mileage_Compute.esql to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\getGet_By_Price.subflow.
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Price.subflow to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\getGet_By_Price_Compute.esql.
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Price_Compute.esql to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\getGet_By_Year.subflow.
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Year.subflow to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\getGet_By_Year_Compute.esql.
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Year_Compute.esql to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\restapi.descriptor.
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+Elapsed time: 0.001 second(s).
+
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\restapi.descriptor.
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Processing file REST_FORD_ESCORTAPP\swagger.json.
+Successfully added file REST_FORD_ESCORTAPP\swagger.json to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file REST_FORD_ESCORTAPP\swagger.json to BAR file.

@@ -1,0 +1,44 @@
+
+==============================================
+
+!Wed Nov 16 19:30:09 IST 2022
+
+Successfully added file REST_FORD_ESCORTAPP\gen\REST_FORD_ESCORTAPP.msgflow to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler.subflow to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputCatchHandler_Compute.esql to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler.subflow to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputFailureHandler_Compute.esql to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler.subflow to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\REST_FORD_ESCORTAPPInputTimeoutHandler_Compute.esql to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\exception_rest_sub_flow_Compute.esql to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Mileage.subflow to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Mileage_Compute.esql to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Price.subflow to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Price_Compute.esql to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Year.subflow to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\getGet_By_Year_Compute.esql to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\restapi.descriptor to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\swagger.json to BAR file.
+
+Successfully added file REST_FORD_ESCORTAPP\swagger.json to BAR file.

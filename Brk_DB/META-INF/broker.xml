@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+<CompiledMessageFlow name="REST_FORD_ESCORTAPPInputFailureHandler" type="subflow">
+<ConfigurableProperty override="SAMPLE_DSN" uri="REST_FORD_ESCORTAPPInputFailureHandler#Compute.dataSource"/>
+<ConfigurableProperty uri="REST_FORD_ESCORTAPPInputFailureHandler#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="REST_FORD_ESCORTAPPInputFailureHandler#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="REST_FORD_ESCORTAPPInputCatchHandler" type="subflow">
+<ConfigurableProperty override="SAMPLE_DSN" uri="REST_FORD_ESCORTAPPInputCatchHandler#Compute.dataSource"/>
+<ConfigurableProperty uri="REST_FORD_ESCORTAPPInputCatchHandler#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="REST_FORD_ESCORTAPPInputCatchHandler#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="getGet_By_Price" type="subflow">
+<ConfigurableProperty override="SAMPLE_DSN" uri="getGet_By_Price#Compute.dataSource"/>
+<ConfigurableProperty uri="getGet_By_Price#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="getGet_By_Price#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="gen.REST_FORD_ESCORTAPP">
+<ConfigurableProperty override="3" uri="gen.REST_FORD_ESCORTAPP#additionalInstances"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#processingTimeoutSec"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#processingTimeoutAction"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#wlmPolicy"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#commitCount"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#commitInterval"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#coordinatedTransaction"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#consumerPolicySet"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#providerPolicySet"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#providerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#securityProfileName"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#monitoringProfile"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#startMode"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="/rest_ford_escortapp/v1*" uri="gen.REST_FORD_ESCORTAPP#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty override="JSON" uri="gen.REST_FORD_ESCORTAPP#HTTP Input.faultFormat"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="gen.REST_FORD_ESCORTAPP#HTTP Reply.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="getGet_By_Mileage" type="subflow">
+<ConfigurableProperty override="SAMPLE_DSN" uri="getGet_By_Mileage#Compute.dataSource"/>
+<ConfigurableProperty uri="getGet_By_Mileage#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="getGet_By_Mileage#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="REST_FORD_ESCORTAPPInputTimeoutHandler" type="subflow">
+<ConfigurableProperty override="SAMPLE_DSN" uri="REST_FORD_ESCORTAPPInputTimeoutHandler#Compute.dataSource"/>
+<ConfigurableProperty uri="REST_FORD_ESCORTAPPInputTimeoutHandler#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="REST_FORD_ESCORTAPPInputTimeoutHandler#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="getGet_By_Year" type="subflow">
+<ConfigurableProperty override="SAMPLE_DSN" uri="getGet_By_Year#Compute.dataSource"/>
+<ConfigurableProperty uri="getGet_By_Year#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="getGet_By_Year#Compute.validateMaster"/>
+</CompiledMessageFlow>
+</Broker>
