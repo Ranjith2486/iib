@@ -1,0 +1,53 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "JsonVal_RestApi",
+    "version" : "1.0.0",
+    "description" : "JsonVal_RestApi"
+  },
+  "paths" : {
+    "/insertStd" : {
+      "post" : {
+        "operationId" : "postInsertStd",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a insertStd",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/Student"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/jsonval_restapi/v1",
+  "definitions" : {
+    "Student" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "role" : {
+          "type" : "string"
+        },
+        "qualification" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "name", "role", "qualification", "salary" ]
+    }
+  }
+}
