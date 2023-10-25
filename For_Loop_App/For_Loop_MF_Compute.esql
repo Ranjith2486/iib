@@ -1,0 +1,30 @@
+
+
+CREATE COMPUTE MODULE For_Loop_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		   CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+	SET OutputRoot.MQMD=InputRoot.MQMD;
+
+SET Environment.SourceData.Folder[1].Field1 = 'Field11Value';
+SET Environment.SourceData.Folder[1].Field2 = 'Field12Value';
+SET Environment.SourceData.Folder[2].Field1 = 'Field21Value';
+SET Environment.SourceData.Folder[2].Field2 = 'Field22Value';
+
+DECLARE i INTEGER 1;
+FOR source AS Environment.SourceData.Folder[] DO
+     CREATE LASTCHILD OF OutputRoot.XMLNSC.Details.ResultData.MessageArrayTest.Folder[i] 
+            NAME 'FieldA' VALUE '\' || source.Field1 || '\' || CAST(i AS CHAR);
+            SET OutputRoot.JSON.Data.OUT.Folder[i]=OutputRoot.XMLNSC.Details.ResultData.MessageArrayTest.Folder[i];
+     CREATE LASTCHILD OF OutputRoot.XMLNSC.Details.ResultData.MessageArrayTest.Folder[i] 
+            NAME 'FieldB' VALUE '\' || source.Field2 || '\' || CAST(i AS CHAR);
+            SET OutputRoot.JSON.Data.OUT.Folder[i]=OutputRoot.XMLNSC.Details.ResultData.MessageArrayTest.Folder[i];
+     SET i = i + 1;
+END FOR;
+	END;
+END MODULE;
