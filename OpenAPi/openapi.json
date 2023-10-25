@@ -1,0 +1,24 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OpenAPi",
+    "version": "1.0.0",
+    "description": "OpenAPi"
+  },
+  "servers": [
+    {
+      "url": "/openapi/v1"
+    }
+  ],
+  "paths": {
+    "/new-path": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    }
+  }
+}
