@@ -1,0 +1,21 @@
+
+
+CREATE DATABASE MODULE Database_Node_App_MF_Database
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL myproc();
+		RETURN TRUE;
+	END;
+	CREATE PROCEDURE myproc ( )
+	BEGIN
+		DECLARE inref REFERENCE TO Root.XMLNSC.Data;
+		DECLARE name,role,qualification,salary CHARACTER;
+		SET name=inref.name;
+		SET role=inref.role;
+		SET qualification=inref.qualification;
+		SET salary=inref.salary;
+		INSERT INTO Database.std (STD_NAME,STD_ROLE,QUALIFICATION,SALARY) VALUES (name,role,qualification,salary);
+		
+	END;
+
+END MODULE;
