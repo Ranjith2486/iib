@@ -1,0 +1,10 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "NEW_REST_SWAGGER",
+    "version" : "1.0.0",
+    "description" : "NEW_REST_SWAGGER"
+  },
+  "paths" : { },
+  "basePath" : "/new_rest_swagger/v1"
+}
