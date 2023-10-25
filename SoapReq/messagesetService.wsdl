@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="messageset" targetNamespace="http://tempuri.org/messageset" xmlns="http://tempuri.org/messageset" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/messageset" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="messagesetSOAP_HTTP_Binding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  <wsdl:types>
+    
+          <xsd:schema targetNamespace="http://tempuri.org/messageset" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mrm="http://tempuri.org/messageset">
+<xsd:include schemaLocation="messagesetService_InlineSchema1.xsd"/>
+</xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="AddStudent_in">
+    <wsdl:part element="AddStudentRequest" name="AddStudentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AddStudent_out">
+    <wsdl:part element="AddStudentResponse" name="AddStudentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AddStudent_fault1">
+    <wsdl:part element="Fault" name="Fault"/>
+  </wsdl:message>
+  <wsdl:message name="GetStudent_in">
+    <wsdl:part element="GetStudentRequest" name="GetStudentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetStudent_out">
+    <wsdl:part element="GetStudentResponse" name="GetStudentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetStudent_fault1">
+    <wsdl:part element="Fault" name="Fault"/>
+  </wsdl:message>
+  <wsdl:portType name="messagesetPortType">
+    <wsdl:operation name="AddStudent">
+      <wsdl:input message="AddStudent_in" name="AddStudent_Input"/>
+      <wsdl:output message="AddStudent_out" name="AddStudent_Output"/>
+      <wsdl:fault message="AddStudent_fault1" name="AddStudent_Fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudent">
+      <wsdl:input message="GetStudent_in" name="GetStudent_Input"/>
+      <wsdl:output message="GetStudent_out" name="GetStudent_Output"/>
+      <wsdl:fault message="GetStudent_fault1" name="GetStudent_Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="messagesetSOAP_HTTP_Binding" type="messagesetPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddStudent">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="AddStudent_Input">
+        <soap:body parts="AddStudentRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddStudent_Output">
+        <soap:body parts="AddStudentResponse" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AddStudent_Fault">
+        <soap:fault name="AddStudent_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudent">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetStudent_Input">
+        <soap:body parts="GetStudentRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetStudent_Output">
+        <soap:body parts="GetStudentResponse" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="GetStudent_Fault">
+        <soap:fault name="GetStudent_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="messagesetSOAP_HTTP_Service">
+    <wsdl:port binding="messagesetSOAP_HTTP_Binding" name="messagesetSOAP_HTTP_Port">
+      <soap:address location="http://localhost:7800/messagesetSOAP_HTTP_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
