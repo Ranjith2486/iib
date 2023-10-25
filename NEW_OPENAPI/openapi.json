@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NEW_OPENAPI",
+    "version": "1.0.0",
+    "description": "NEW_OPENAPI"
+  },
+  "servers": [
+    {
+      "url": "/new_openapi/v1"
+    }
+  ],
+  "paths": {
+    "/base_path": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
