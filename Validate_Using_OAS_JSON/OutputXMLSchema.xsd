@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/OutputXMLSchema" xmlns:tns="http://www.example.org/OutputXMLSchema" elementFormDefault="qualified">
+<element name="Item">
+<complexType>
+<sequence>
+<element name="Name" type="string"/>
+<element name="Department" type="string"/>
+<element name="TotalCost" type="decimal"/>
+<element name="Description" type="string"/>
+</sequence>
+</complexType>
+</element>
+</schema>
