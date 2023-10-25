@@ -1,0 +1,20 @@
+
+
+CREATE COMPUTE MODULE file_db_mf_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		
+		DECLARE inRef REFERENCE TO InputRoot.XMLNSC;
+		DECLARE custId INTEGER;
+		SET custId=inRef.custid;
+		DECLARE query CHARACTER 'select * from CUSTOMER where CUSTOMERID=?';
+		SET OutputRoot.JSON.Data.Res[]=PASSTHRU(query.RANDB VALUES(custId));
+	END;
+END MODULE;

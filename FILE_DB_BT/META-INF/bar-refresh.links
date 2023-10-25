@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy:Deploy xmlns:deploy="http://www.ibm.com/xmlns/prod/wmb/deploy/6.0.0" overrideConfigurableProperties="true" includeESQL="false">
+  <deployables>
+    <deployable deployed="true" barResourceTimeStamp="1671101026590" workspaceResource="/File_DB_APP/application.descriptor">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file File_DB_APP\application.descriptor.&#xA;Successfully added file File_DB_APP\application.descriptor to BAR file.&#xA;Elapsed time: 0.001 second(s).&#xA;&#xA;Successfully added file File_DB_APP\application.descriptor to BAR file.&#xA;" severity="0"/>
+      <barEntry name="application.descriptor"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1671101344031" workspaceResource="/File_DB_APP/file_db_mf.msgflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file File_DB_APP\file_db_mf.msgflow.&#xA;Successfully added file File_DB_APP\file_db_mf.msgflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="file_db_mf.msgflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1671101146849" workspaceResource="/File_DB_APP/file_db_mf_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file File_DB_APP\file_db_mf_Compute.esql.&#xA;Successfully added file File_DB_APP\file_db_mf_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="file_db_mf_Compute.esql"/>
+    </deployable>
+  </deployables>
+</deploy:Deploy>
