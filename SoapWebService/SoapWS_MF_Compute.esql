@@ -1,0 +1,21 @@
+
+
+CREATE COMPUTE MODULE SoapWS_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN FALSE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot=InputRoot;
+      IF InputLocalEnvironment.Destination.RouterList.DestinationData.labelName='GetStudent' THEN
+      Propagate to terminal 1;
+      ELSE 
+      Propagate;
+      END IF;
+ 
+	END;
+END MODULE;

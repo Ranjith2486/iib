@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/messageset" xmlns="http://tempuri.org/messageset" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mrm="http://tempuri.org/messageset" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/messageset" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:complexType name="AddStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="mrm:name"/>
+          <xsd:element ref="mrm:qualification"/>
+          <xsd:element ref="mrm:role"/>
+          <xsd:element ref="mrm:salary"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AddStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="mrm:message"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="mrm:name"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="mrm:name"/>
+          <xsd:element ref="mrm:qualification"/>
+          <xsd:element ref="mrm:role"/>
+          <xsd:element ref="mrm:salary"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="role" type="xsd:string"/>
+      <xsd:element name="qualification" type="xsd:string"/>
+      <xsd:element name="salary" type="xsd:string"/>
+      <xsd:element name="message" type="xsd:string"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="AddStudentRequest" type="mrm:AddStudentRequest"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="AddStudentResponse" type="mrm:AddStudentResponse"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="GetStudentRequest" type="mrm:GetStudentRequest"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="GetStudentResponse" type="mrm:GetStudentResponse"/>
+      <xsd:complexType name="Fault">
+        <xsd:sequence>
+          <xsd:element ref="mrm:FaultText"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element ibmSchExtn:docRoot="true" name="Fault" type="mrm:Fault"/>
+      <xsd:element name="FaultText" type="xsd:string"/>
+    </xsd:schema>

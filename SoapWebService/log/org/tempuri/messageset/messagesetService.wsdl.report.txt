@@ -1,0 +1,27 @@
+
+
+Importing file: C:\Users\Sreenivas Bandaru\IBM\ACET12\workspace\messageset\messagesetService.wsdl
+
+The WSDL import will proceed with bindings messagesetSOAP_HTTP_Binding.
+Creating wsdl schema document for file:///C:/Users/Sreenivas Bandaru/IBM/ACET12/workspace/messageset/messagesetService.wsdl.
+Parsing wsdl binding {http://tempuri.org/messageset}messagesetSOAP_HTTP_Binding.
+Parsing wsdl binding input AddStudent.
+Parsing wsdl binding output AddStudent.
+Parsing wsdl binding fault AddStudent_Fault.
+Parsing wsdl binding input GetStudent.
+Parsing wsdl binding output GetStudent.
+Parsing wsdl binding fault GetStudent_Fault.
+Processing doc style for operation AddStudent.
+Processing doc style for operation GetStudent.
+Populating WSDL schema messagesetService.xsd.
+Creating file messagesetService.xsd in the workspace.
+Creating file messagesetService_InlineSchema1.xsd in the workspace.
+Copying source WSDL messagesetService.wsdl to messagesetService.wsdl.
+
+Elapsed time processing this message definition file: 0.514 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+
