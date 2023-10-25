@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+    <xsd:element name="Salary" nillable="true" type="xsd:string"/>  
+    <xsd:element name="Qualification" nillable="true" type="xsd:string"/>  
+    <xsd:element name="Role" nillable="true" type="xsd:string"/>  
+    <xsd:element name="Name" nillable="true" type="xsd:string"/>  
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var2"/>
+    <input path="db:database(/xe.dbm,xe,db:schema-tables(SYSTEM,STD))" var="xe1"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var1"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="MapDB_MF_Mapping">
+        <input namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,Properties)" var="ComIbmMessageAssembly_JSON">
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var"/>
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/any" qualifier="Name" ref="var2"/>
+        </input>
+        <input path="$xe1/db:select(fn:false(),ResultSet(SYSTEM/STD/STD_NAME,SYSTEM/STD/STD_ROLE,SYSTEM/STD/QUALIFICATION,SYSTEM/STD/SALARY),db:where('1=1SYSTEM.STD.STD_NAME =  ?','?'=$ComIbmMessageAssembly_JSON/io:JSON//Data//Name))" var="dbselect"/>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var1/mb:msg(JSON,assembly,JSON,Properties)" var="ComIbmMessageAssembly_JSON1">
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON1/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var1"/>
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/any" qualifier="Name" ref="var2"/>
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/any" qualifier="Role" ref="var2"/>
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/any" qualifier="Qualification" ref="var2"/>
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/any" qualifier="Salary" ref="var2"/>
+        </output>
+        <move>
+            <input path="$ComIbmMessageAssembly_JSON/Properties"/>
+            <output path="$ComIbmMessageAssembly_JSON1/Properties"/>
+        </move>
+        <select ref="dbselect">
+            <input path="$dbselect/ResultSet"/>
+            <output path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/any"/>
+            <expression>
+                <input path="."/>
+                <output path="."/>
+            </expression>
+        </select>
+        <move>
+            <input path="$dbselect/ResultSet/SYSTEM/STD/STD_NAME"/>
+            <output path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/Name"/>
+        </move>
+        <move>
+            <input path="$dbselect/ResultSet/SYSTEM/STD/STD_ROLE"/>
+            <output path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/Role"/>
+        </move>
+        <move>
+            <input path="$dbselect/ResultSet/SYSTEM/STD/QUALIFICATION"/>
+            <output path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/Qualification"/>
+        </move>
+        <move>
+            <input path="$dbselect/ResultSet/SYSTEM/STD/SALARY"/>
+            <output path="$ComIbmMessageAssembly_JSON1/JSON/spath('Data',2)/Salary"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>
