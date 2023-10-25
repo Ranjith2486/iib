@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+<CompiledMessageFlow name="gen.REST_API_Open">
+<ConfigurableProperty override="3" uri="gen.REST_API_Open#additionalInstances"/>
+<ConfigurableProperty uri="gen.REST_API_Open#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="gen.REST_API_Open#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="gen.REST_API_Open#processingTimeoutSec"/>
+<ConfigurableProperty uri="gen.REST_API_Open#processingTimeoutAction"/>
+<ConfigurableProperty uri="gen.REST_API_Open#wlmPolicy"/>
+<ConfigurableProperty uri="gen.REST_API_Open#commitCount"/>
+<ConfigurableProperty uri="gen.REST_API_Open#commitInterval"/>
+<ConfigurableProperty uri="gen.REST_API_Open#coordinatedTransaction"/>
+<ConfigurableProperty uri="gen.REST_API_Open#consumerPolicySet"/>
+<ConfigurableProperty uri="gen.REST_API_Open#providerPolicySet"/>
+<ConfigurableProperty uri="gen.REST_API_Open#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.REST_API_Open#providerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.REST_API_Open#securityProfileName"/>
+<ConfigurableProperty uri="gen.REST_API_Open#monitoringProfile"/>
+<ConfigurableProperty uri="gen.REST_API_Open#startMode"/>
+<ConfigurableProperty uri="gen.REST_API_Open#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="/rest_api_open/v1*" uri="gen.REST_API_Open#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="gen.REST_API_Open#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="gen.REST_API_Open#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty uri="gen.REST_API_Open#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty override="JSON" uri="gen.REST_API_Open#HTTP Input.faultFormat"/>
+<ConfigurableProperty override="contentAndValue" uri="gen.REST_API_Open#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="gen.REST_API_Open#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="gen.REST_API_Open#HTTP Reply.compressionType"/>
+<ConfigurableProperty uri="gen.REST_API_Open#HTTP Reply.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="postPost1" type="subflow">
+<ConfigurableProperty uri="postPost1#Compute.dataSource"/>
+<ConfigurableProperty uri="postPost1#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="postPost1#Compute.validateMaster"/>
+</CompiledMessageFlow>
+</Broker>
