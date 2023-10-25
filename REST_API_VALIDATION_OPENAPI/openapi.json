@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST_API_VALIDATION_OPENAPI",
+    "version": "1.0.0",
+    "description": "REST_API_VALIDATION_OPENAPI"
+  },
+  "servers": [
+    {
+      "url": "/rest_api_validation_openapi/v1"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Post_Request": {
+        "type": "object",
+        "properties": {
+          "ID": {
+            "type": "integer"
+          },
+          "NAME": {
+            "type": "string"
+          },
+          "ADDRESS": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/Val_Using_OpenApi": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post_Request"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
