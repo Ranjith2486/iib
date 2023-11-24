@@ -16,7 +16,11 @@
         "type": "object",
         "properties": {
           "ID": {
-            "type": "integer"
+            "type": "integer",
+            "maximum": 6,
+            "exclusiveMaximum": true,
+            "minimum": 1,
+            "exclusiveMinimum": true
           },
           "NAME": {
             "type": "string"
@@ -24,6 +28,11 @@
           "ADDRESS": {
             "type": "string"
           }
+        },
+        "example": {
+          "ID": 893,
+          "NAME": "",
+          "ADDRESS": ""
         }
       }
     }

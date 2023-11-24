@@ -7,7 +7,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/REST_API_VALIDATION_OPENAPI/icons/full/obj16/REST_API_VALIDATION_OPENAPI.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/REST_API_VALIDATION_OPENAPI/icons/full/obj30/REST_API_VALIDATION_OPENAPI.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="25,150" URLSpecifier="/rest_api_validation_openapi/v1*" parseQueryString="true" messageDomainProperty="JSON" messageSetProperty="openapi.json" messageTypeProperty="#/components/schemas/Post_Request" validateTiming="immediate" faultFormat="JSON" validateMaster="contentAndValue">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="25,150" URLSpecifier="/rest_api_validation_openapi/v1*" parseQueryString="true" messageDomainProperty="JSON" faultFormat="JSON">
         <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
       </nodes>
       <nodes xmi:type="ComIbmRouteToLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="275,150">
@@ -19,7 +19,7 @@
       <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="125,225" labelName="postVal_Using_OpenApi">
         <translation xmi:type="utility:ConstantString" string="postVal_Using_OpenApi (Label)"/>
       </nodes>
-      <nodes xmi:type="postVal_Using_OpenApi.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="316,230">
+      <nodes xmi:type="postVal_Using_OpenApi.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="325,225">
         <translation xmi:type="utility:ConstantString" string="postVal_Using_OpenApi (Implementation)"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>

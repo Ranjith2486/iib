@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/HTTP_PROVIDER/icons/full/obj16/HTTP_PROVIDER_MF.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/HTTP_PROVIDER/icons/full/obj30/HTTP_PROVIDER_MF.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="28,145" URLSpecifier="/httpprovider" messageDomainProperty="XMLNSC">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="28,145" URLSpecifier="/httpprovider" useHTTPS="true" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
         <monitorEvents eventSourceDescription="Transaction end" eventSourceName="HTTP Input.transaction.End" eventIdentity="HTTP Input.TransactionEnd">
           <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">

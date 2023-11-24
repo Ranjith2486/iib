@@ -12,7 +12,7 @@
       <nodes xmi:type="ComIbmHTTPAsyncResponse.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="171,183" asyncRequestCorrelator="school_id" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="HTTP Async Response1"/>
       </nodes>
-      <nodes xmi:type="ComIbmGroupGather.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="482,111" GroupName="GSTR" UnknownMessageTimeout="150.0">
+      <nodes xmi:type="ComIbmGroupGather.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="419,113" GroupName="GSTR" UnknownMessageTimeout="150.0">
         <translation xmi:type="utility:ConstantString" string="Group Gather"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>

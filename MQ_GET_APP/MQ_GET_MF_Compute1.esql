@@ -1,6 +1,6 @@
 
 
-CREATE COMPUTE MODULE timer_mf_Compute
+CREATE COMPUTE MODULE MQ_GET_MF_Compute1
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
@@ -8,7 +8,6 @@ CREATE COMPUTE MODULE timer_mf_Compute
 		RETURN TRUE;
 	END;
 
-	
 
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		SET OutputRoot = InputRoot;

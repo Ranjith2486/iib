@@ -2,6 +2,7 @@ BROKER SCHEMA ExceptionHanLib
 
 
 CREATE COMPUTE MODULE Exc_subFlow_Compute
+	
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
@@ -41,7 +42,8 @@ CREATE COMPUTE MODULE Exc_subFlow_Compute
 		SET OutRef2.ErrorLocation=errorRef.ErrorLocation;
 	END IF;
 	END;
-	Create Procedure getException(IN InputExceptionList REFERENCE,IN ErrorRef REFERENCE) Begin
+	Create Procedure getException(IN InputExceptionList REFERENCE,IN ErrorRef REFERENCE)
+	 Begin
 		DECLARE inExRef REFERENCE To InputExceptionList.[1];
 		While ENDSWITH(FIELDNAME(inExRef),'Exception') Do
 			SET ErrorRef.Errorcode=inExRef.Number;
@@ -58,3 +60,8 @@ CREATE COMPUTE MODULE Exc_subFlow_Compute
 	END;
 	
 END MODULE;
+
+
+
+
+
