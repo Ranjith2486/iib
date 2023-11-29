@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Calculator_MessageSet" targetNamespace="http://tempuri.org/Calculator_MessageSet" xmlns="http://tempuri.org/Calculator_MessageSet" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/Calculator_MessageSet" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Calculator_MessageSet" xmlns:mrm="http://tempuri.org/Calculator_MessageSet">
+      <xsd:complexType name="Add_Operation">
+        <xsd:sequence>
+          <xsd:element ref="num1"/>
+          <xsd:element ref="num2"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="num1" type="xsd:int"/>
+      <xsd:element name="num2" type="xsd:int"/>
+      <xsd:element name="result" type="xsd:int"/>
+      <xsd:element name="Add_Operation" type="Add_Operation"/>
+      <xsd:complexType name="Result">
+        <xsd:sequence>
+          <xsd:element ref="result"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="complexType">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="Result" type="Result"/>
+      <xsd:complexType name="Fault">
+        <xsd:sequence>
+          <xsd:element ref="fault"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="fault" type="xsd:string"/>
+      <xsd:complexType name="complexType1">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element name="Fault" type="Fault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AddOperation_in">
+    <wsdl:part element="Add_Operation" name="Add_Operation"/>
+  </wsdl:message>
+  <wsdl:message name="AddOperation_out">
+    <wsdl:part element="Result" name="Result"/>
+  </wsdl:message>
+  <wsdl:message name="AddOperation_fault1">
+    <wsdl:part element="Fault" name="Fault"/>
+  </wsdl:message>
+  <wsdl:portType name="Calculator_MessageSetPortType">
+    <wsdl:operation name="AddOperation">
+      <wsdl:input message="AddOperation_in" name="AddOperation_Input"/>
+      <wsdl:output message="AddOperation_out" name="AddOperation_Output"/>
+      <wsdl:fault message="AddOperation_fault1" name="AddOperation_Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Calculator_MessageSetSOAP_HTTP_Binding" type="Calculator_MessageSetPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddOperation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="AddOperation_Input">
+        <soap:body parts="Add_Operation" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddOperation_Output">
+        <soap:body parts="Result" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AddOperation_Fault">
+        <soap:fault name="AddOperation_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Calculator_MessageSetSOAP_HTTP_Service">
+    <wsdl:port binding="Calculator_MessageSetSOAP_HTTP_Binding" name="Calculator_MessageSetSOAP_HTTP_Port">
+      <soap:address location="http://localhost:7800/Calculator_MessageSetSOAP_HTTP_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

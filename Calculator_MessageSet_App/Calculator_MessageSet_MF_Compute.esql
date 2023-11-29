@@ -1,0 +1,23 @@
+
+DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+DECLARE cal NAMESPACE 'http://tempuri.org/Calculator_MessageSet';
+CREATE COMPUTE MODULE Calculator_MessageSet_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE ref REFERENCE TO InputRoot.SOAP.Body;
+		DECLARE num1,num2,res INTEGER;
+		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:soapenv=soapenv;
+		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:cal=cal;
+		SET num1=ref.cal:Add_Operation.cal:num1;
+		SET num2=ref.cal:Add_Operation.cal:num2;
+		SET res=num1+num2;
+		SET OutputRoot.SOAP.Body.cal:Result.cal:result=res;
+	END;
+END MODULE;

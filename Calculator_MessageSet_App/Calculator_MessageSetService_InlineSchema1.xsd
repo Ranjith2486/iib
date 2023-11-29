@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/Calculator_MessageSet" xmlns="http://tempuri.org/Calculator_MessageSet" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mrm="http://tempuri.org/Calculator_MessageSet" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/Calculator_MessageSet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:complexType name="Add_Operation">
+        <xsd:sequence>
+          <xsd:element ref="mrm:num1"/>
+          <xsd:element ref="mrm:num2"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="num1" type="xsd:int"/>
+      <xsd:element name="num2" type="xsd:int"/>
+      <xsd:element name="result" type="xsd:int"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="Add_Operation" type="mrm:Add_Operation"/>
+      <xsd:complexType name="Result">
+        <xsd:sequence>
+          <xsd:element ref="mrm:result"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="complexType">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element ibmSchExtn:docRoot="true" name="Result" type="mrm:Result"/>
+      <xsd:complexType name="Fault">
+        <xsd:sequence>
+          <xsd:element ref="mrm:fault"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="fault" type="xsd:string"/>
+      <xsd:complexType name="complexType1">
+        <xsd:sequence/>
+      </xsd:complexType>
+      <xsd:element ibmSchExtn:docRoot="true" name="Fault" type="mrm:Fault"/>
+    </xsd:schema>

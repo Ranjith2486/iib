@@ -1,0 +1,23 @@
+
+
+Importing file: C:\Users\Sreenivas Bandaru\IBM\ACET12\workspace\Calculator_MessageSet\Calculator_MessageSetService.wsdl
+
+The WSDL import will proceed with bindings Calculator_MessageSetSOAP_HTTP_Binding.
+Creating wsdl schema document for file:///C:/Users/Sreenivas Bandaru/IBM/ACET12/workspace/Calculator_MessageSet/Calculator_MessageSetService.wsdl.
+Parsing wsdl binding {http://tempuri.org/Calculator_MessageSet}Calculator_MessageSetSOAP_HTTP_Binding.
+Parsing wsdl binding input AddOperation.
+Parsing wsdl binding output AddOperation.
+Parsing wsdl binding fault AddOperation_Fault.
+Processing doc style for operation AddOperation.
+Populating WSDL schema Calculator_MessageSetService.xsd.
+Creating file Calculator_MessageSetService.xsd in the workspace.
+Creating file Calculator_MessageSetService_InlineSchema1.xsd in the workspace.
+Copying source WSDL Calculator_MessageSetService.wsdl to Calculator_MessageSetService.wsdl.
+
+Elapsed time processing this message definition file: 0.776 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

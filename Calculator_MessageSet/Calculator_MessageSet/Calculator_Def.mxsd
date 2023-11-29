@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="Add_Operation">
+    <xsd:sequence>
+      <xsd:element ref="num1"/>
+      <xsd:element ref="num2"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="num1" type="xsd:int"/>
+  <xsd:element name="num2" type="xsd:int"/>
+  <xsd:element name="result" type="xsd:int"/>
+  <xsd:element name="Add_Operation" type="Add_Operation">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Add_Operation;XSDElementDeclaration=3$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Result">
+    <xsd:sequence>
+      <xsd:element ref="result"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Result" type="Result">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Result;XSDElementDeclaration=4$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Fault">
+    <xsd:sequence>
+      <xsd:element ref="fault"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="fault" type="xsd:string"/>
+  <xsd:element name="Fault" type="Fault">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Fault;XSDElementDeclaration=6$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>
