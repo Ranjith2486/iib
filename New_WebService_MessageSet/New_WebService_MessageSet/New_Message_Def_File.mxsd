@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="AddStudentRequest">
+    <xsd:sequence>
+      <xsd:element ref="Name"/>
+      <xsd:element ref="Role"/>
+      <xsd:element ref="Qulification"/>
+      <xsd:element ref="Salary"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FetchStudentRequest">
+    <xsd:sequence>
+      <xsd:element ref="Name"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DeleteStudentRequest">
+    <xsd:sequence>
+      <xsd:element ref="Name"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Fault">
+    <xsd:sequence>
+      <xsd:element ref="Fault"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Name" type="xsd:string"/>
+  <xsd:element name="Role" type="xsd:string"/>
+  <xsd:element name="Qulification" type="xsd:string"/>
+  <xsd:element name="Salary" type="xsd:string"/>
+  <xsd:complexType name="AddStudentResponse">
+    <xsd:sequence>
+      <xsd:element ref="Response"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AddStudentRequest" type="AddStudentRequest">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AddStudentRequest;XSDElementDeclaration=4$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="FetchStudentResponse">
+    <xsd:sequence>
+      <xsd:element ref="Name"/>
+      <xsd:element ref="Role"/>
+      <xsd:element ref="Qulification"/>
+      <xsd:element ref="Salary"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DeleteStudentResponse">
+    <xsd:sequence>
+      <xsd:element ref="Response"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AddStudentResponse" type="AddStudentResponse">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/AddStudentResponse;XSDElementDeclaration=5$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="FetchStudentRequest" type="FetchStudentRequest">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/FetchStudentRequest;XSDElementDeclaration=6$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="FetchStudentResponse" type="FetchStudentResponse">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/FetchStudentResponse;XSDElementDeclaration=7$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="DeleteStudentRequest" type="DeleteStudentRequest">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/DeleteStudentRequest;XSDElementDeclaration=8$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="DeleteStudentResponse" type="DeleteStudentResponse">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/DeleteStudentResponse;XSDElementDeclaration=9$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Fault" type="Fault">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Fault;XSDElementDeclaration=10$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Response" type="xsd:string"/>
+</xsd:schema>

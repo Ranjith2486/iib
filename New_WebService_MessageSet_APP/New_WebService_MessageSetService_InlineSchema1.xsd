@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/New_WebService_MessageSet" xmlns="http://tempuri.org/New_WebService_MessageSet" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mrm="http://tempuri.org/New_WebService_MessageSet" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/New_WebService_MessageSet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:complexType name="AddStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="mrm:Name"/>
+          <xsd:element ref="mrm:Role"/>
+          <xsd:element ref="mrm:Qulification"/>
+          <xsd:element ref="mrm:Salary"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FetchStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="mrm:Name"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DeleteStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="mrm:Name"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Fault">
+        <xsd:sequence>
+          <xsd:element ref="mrm:Fault"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="Role" type="xsd:string"/>
+      <xsd:element name="Qulification" type="xsd:string"/>
+      <xsd:element name="Salary" type="xsd:string"/>
+      <xsd:complexType name="AddStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="mrm:Response"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AddStudentRequest" type="mrm:AddStudentRequest"/>
+      <xsd:complexType name="FetchStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="mrm:Name"/>
+          <xsd:element ref="mrm:Role"/>
+          <xsd:element ref="mrm:Qulification"/>
+          <xsd:element ref="mrm:Salary"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DeleteStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="mrm:Response"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AddStudentResponse" type="mrm:AddStudentResponse"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="FetchStudentRequest" type="mrm:FetchStudentRequest"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="FetchStudentResponse" type="mrm:FetchStudentResponse"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="DeleteStudentRequest" type="mrm:DeleteStudentRequest"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="DeleteStudentResponse" type="mrm:DeleteStudentResponse"/>
+      <xsd:element ibmSchExtn:docRoot="true" name="Fault" type="mrm:Fault"/>
+      <xsd:element name="Response" type="xsd:string"/>
+    </xsd:schema>

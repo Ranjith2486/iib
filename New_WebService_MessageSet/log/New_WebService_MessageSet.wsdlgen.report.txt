@@ -1,0 +1,54 @@
+Summary of selections: WSDL files generation
+
+The selected message set:
+/New_WebService_MessageSet/New_WebService_MessageSet
+
+The generated WSDL files will go into:
+/New_WebService_MessageSet
+
+The version of WSDL to be generated: 1.1
+The version of SOAP to be generated: 1.1
+
+The selected style for WSDL generation: document
+The WSDL Namespace: http://tempuri.org/New_WebService_MessageSet
+
+The following operations will be created:
+DeleteStudentInfo (Request-Response)
+FetchStudentDetails (Request-Response)
+
+The following bindings are selected:
+SOAP over http.
+
+The following WSDL files will be generated:
+/New_WebService_MessageSet/New_WebService_MessageSetService.wsdl
+
+
+Creating new WSDL Service file '\New_WebService_MessageSet\New_WebService_MessageSetService.wsdl'
+Setting wsdl definition name for 'New_WebService_MessageSetService.wsdl': New_WebService_MessageSet
+Setting wsdl definition targetNamespace for 'New_WebService_MessageSetService.wsdl': http://tempuri.org/New_WebService_MessageSet
+Adding namespace: xmlns for 'New_WebService_MessageSetService.wsdl':soap=http://schemas.xmlsoap.org/wsdl/soap/
+Adding namespace: xmlns for 'New_WebService_MessageSetService.wsdl':xsd=http://www.w3.org/2001/XMLSchema
+Adding namespace: xmlns for 'New_WebService_MessageSetService.wsdl':wsdl=http://schemas.xmlsoap.org/wsdl/
+Creating new WSDL Interface file '\New_WebService_MessageSet\New_WebService_MessageSetService.wsdl'
+Creating portType for WSDL Interface: New_WebService_MessageSetPortType
+Creating portType operation 'DeleteStudentInfo'
+Creating message 'DeleteStudentInfo_in'
+Creating message 'DeleteStudentInfo_out'
+Creating message 'DeleteStudentInfo_fault1'
+Creating portType operation 'FetchStudentDetails'
+Creating message 'FetchStudentDetails_in'
+Creating message 'FetchStudentDetails_out'
+Creating message 'FetchStudentDetails_fault1'
+Creating SOAP over HTTP binding 'New_WebService_MessageSetSOAP_HTTP_Binding'
+Creating binding operation 'DeleteStudentInfo' for binding 'New_WebService_MessageSetSOAP_HTTP_Binding'
+Creating binding operation 'FetchStudentDetails' for binding 'New_WebService_MessageSetSOAP_HTTP_Binding'
+Creating SOAP over HTTP service 'New_WebService_MessageSetSOAP_HTTP_Service'
+Creating port 'New_WebService_MessageSetSOAP_HTTP_Port' for service 'New_WebService_MessageSetSOAP_HTTP_Service'
+
+Elapsed time processing this WSDL definition: 1.698647128135E9 seconds
+Number of warnings for this WSDL definition: 0
+
+
+Number of files processed: 1
+
+

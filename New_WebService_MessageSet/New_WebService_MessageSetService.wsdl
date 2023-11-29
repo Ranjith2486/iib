@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="New_WebService_MessageSet" targetNamespace="http://tempuri.org/New_WebService_MessageSet" xmlns="http://tempuri.org/New_WebService_MessageSet" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/New_WebService_MessageSet" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/New_WebService_MessageSet" xmlns:mrm="http://tempuri.org/New_WebService_MessageSet">
+      <xsd:complexType name="AddStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="Name"/>
+          <xsd:element ref="Role"/>
+          <xsd:element ref="Qulification"/>
+          <xsd:element ref="Salary"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FetchStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="Name"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DeleteStudentRequest">
+        <xsd:sequence>
+          <xsd:element ref="Name"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Fault">
+        <xsd:sequence>
+          <xsd:element ref="Fault"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="Role" type="xsd:string"/>
+      <xsd:element name="Qulification" type="xsd:string"/>
+      <xsd:element name="Salary" type="xsd:string"/>
+      <xsd:complexType name="AddStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="Response"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AddStudentRequest" type="AddStudentRequest"/>
+      <xsd:complexType name="FetchStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="Name"/>
+          <xsd:element ref="Role"/>
+          <xsd:element ref="Qulification"/>
+          <xsd:element ref="Salary"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DeleteStudentResponse">
+        <xsd:sequence>
+          <xsd:element ref="Response"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AddStudentResponse" type="AddStudentResponse"/>
+      <xsd:element name="FetchStudentRequest" type="FetchStudentRequest"/>
+      <xsd:element name="FetchStudentResponse" type="FetchStudentResponse"/>
+      <xsd:element name="DeleteStudentRequest" type="DeleteStudentRequest"/>
+      <xsd:element name="DeleteStudentResponse" type="DeleteStudentResponse"/>
+      <xsd:element name="Fault" type="Fault"/>
+      <xsd:element name="Response" type="xsd:string"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DeleteStudentInfo_in">
+    <wsdl:part element="DeleteStudentRequest" name="DeleteStudentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteStudentInfo_out">
+    <wsdl:part element="DeleteStudentResponse" name="DeleteStudentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteStudentInfo_fault1">
+    <wsdl:part element="Fault" name="Fault"/>
+  </wsdl:message>
+  <wsdl:message name="FetchStudentDetails_in">
+    <wsdl:part element="FetchStudentRequest" name="FetchStudentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="FetchStudentDetails_out">
+    <wsdl:part element="FetchStudentResponse" name="FetchStudentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="FetchStudentDetails_fault1">
+    <wsdl:part element="Fault" name="Fault"/>
+  </wsdl:message>
+  <wsdl:portType name="New_WebService_MessageSetPortType">
+    <wsdl:operation name="DeleteStudentInfo">
+      <wsdl:input message="DeleteStudentInfo_in" name="DeleteStudentInfo_Input"/>
+      <wsdl:output message="DeleteStudentInfo_out" name="DeleteStudentInfo_Output"/>
+      <wsdl:fault message="DeleteStudentInfo_fault1" name="DeleteStudentInfo_Fault"/>
+    </wsdl:operation>
+    <wsdl:operation name="FetchStudentDetails">
+      <wsdl:input message="FetchStudentDetails_in" name="FetchStudentDetails_Input"/>
+      <wsdl:output message="FetchStudentDetails_out" name="FetchStudentDetails_Output"/>
+      <wsdl:fault message="FetchStudentDetails_fault1" name="FetchStudentDetails_Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="New_WebService_MessageSetSOAP_HTTP_Binding" type="New_WebService_MessageSetPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DeleteStudentInfo">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DeleteStudentInfo_Input">
+        <soap:body parts="DeleteStudentRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteStudentInfo_Output">
+        <soap:body parts="DeleteStudentResponse" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DeleteStudentInfo_Fault">
+        <soap:fault name="DeleteStudentInfo_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FetchStudentDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="FetchStudentDetails_Input">
+        <soap:body parts="FetchStudentRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="FetchStudentDetails_Output">
+        <soap:body parts="FetchStudentResponse" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FetchStudentDetails_Fault">
+        <soap:fault name="FetchStudentDetails_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="New_WebService_MessageSetSOAP_HTTP_Service">
+    <wsdl:port binding="New_WebService_MessageSetSOAP_HTTP_Binding" name="New_WebService_MessageSetSOAP_HTTP_Port">
+      <soap:address location="http://localhost:7800/New_WebService_MessageSetSOAP_HTTP_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

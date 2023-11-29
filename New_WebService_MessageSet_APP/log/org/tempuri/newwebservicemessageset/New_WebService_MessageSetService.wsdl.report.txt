@@ -1,0 +1,27 @@
+
+
+Importing file: C:\Users\Sreenivas Bandaru\IBM\ACET12\workspace\New_WebService_MessageSet\New_WebService_MessageSetService.wsdl
+
+The WSDL import will proceed with bindings New_WebService_MessageSetSOAP_HTTP_Binding.
+Creating wsdl schema document for file:///C:/Users/Sreenivas Bandaru/IBM/ACET12/workspace/New_WebService_MessageSet/New_WebService_MessageSetService.wsdl.
+Parsing wsdl binding {http://tempuri.org/New_WebService_MessageSet}New_WebService_MessageSetSOAP_HTTP_Binding.
+Parsing wsdl binding input DeleteStudentInfo.
+Parsing wsdl binding output DeleteStudentInfo.
+Parsing wsdl binding fault DeleteStudentInfo_Fault.
+Parsing wsdl binding input FetchStudentDetails.
+Parsing wsdl binding output FetchStudentDetails.
+Parsing wsdl binding fault FetchStudentDetails_Fault.
+Processing doc style for operation DeleteStudentInfo.
+Processing doc style for operation FetchStudentDetails.
+Populating WSDL schema New_WebService_MessageSetService.xsd.
+Creating file New_WebService_MessageSetService.xsd in the workspace.
+Creating file New_WebService_MessageSetService_InlineSchema1.xsd in the workspace.
+Copying source WSDL New_WebService_MessageSetService.wsdl to New_WebService_MessageSetService.wsdl.
+
+Elapsed time processing this message definition file: 0.864 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+
