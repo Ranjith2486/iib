@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <policies>
   <policy policyType="JDBCProviders" policyName="xe" policyTemplate="Oracle">
-    <databaseName>ORACLE</databaseName>
+    <databaseName>SYSTEM</databaseName>
     <databaseType>Oracle</databaseType>
     <databaseVersion>11</databaseVersion>
     <type4DriverClassName>oracle.jdbc.OracleDriver</type4DriverClassName>

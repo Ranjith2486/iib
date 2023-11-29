@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/xe/system/xe.xsd" var="var1"/>
+    <output path="db:table(/xe.dbm,xe,SYSTEM,STD)" var="STD"/>
+    <output path="/xe/system/xe.xsd" var="var6"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in" uri="http://xe/system"/>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="MapDelete_MF_Mapping">
+        <input namespace="http://xe/system" path="$var1/mb:msg(STD,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_STD"/>
+        <output path="$STD/db:delete(fn:false(),db:where('SYSTEM.STD.STD_NAME =  ?','?'=$ComIbmMessageAssembly_STD/in:STD/STD_NAME))" var="dbdelete"/>
+        <output namespace="http://xe/system" path="$var6/mb:msg(STD,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <delete ref="dbdelete">
+            <input path="$ComIbmMessageAssembly_STD/STD" var="STD1"/>
+            <output path="$dbdelete/." var="dbdelete1"/>
+        </delete>
+        <move>
+            <input path="$ComIbmMessageAssembly_STD/Properties"/>
+            <output path="$MessageAssembly/Properties"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/xe/system/xe.xsd" var="var"/>
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbreturn.xsd" var="var1"/>
+    <output path="/xe/system/xe.xsd" var="var2"/>
+    <output path="db:table(/xe.dbm,xe,SYSTEM,STD)" var="STD"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://xe/system"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="mapInsert_MF_Mapping">
+        <input namespace="http://xe/system" path="$var/mb:msg(STD,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_STD"/>
+        <output namespace="http://xe/system" path="$var2/mb:msg(STD,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_STD1"/>
+        <output path="$STD/db:insert(fn:false(),STD_NAME,STD_ROLE,QUALIFICATION,SALARY)" var="dbinsert"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_STD/Properties"/>
+            <output path="$ComIbmMessageAssembly_STD1/Properties"/>
+        </move>
+        <transaction>
+            <insert ref="dbinsert">
+                <input path="$ComIbmMessageAssembly_STD/STD"/>
+                <output path="$dbinsert/."/>
+                <move>
+                    <input path="STD_NAME"/>
+                    <output path="STD_NAME"/>
+                </move>
+                <move>
+                    <input path="STD_ROLE"/>
+                    <output path="STD_ROLE"/>
+                </move>
+                <move>
+                    <input path="QUALIFICATION"/>
+                    <output path="QUALIFICATION"/>
+                </move>
+                <move>
+                    <input path="SALARY"/>
+                    <output path="SALARY"/>
+                </move>
+            </insert>
+            <return>
+                <input path="$var1/DBInsertReturn" var="DBInsertReturn"/>
+            </return>
+        </transaction>
+        <create empty="true"/>
+    </mappingDeclaration>
+</mappingRoot>
