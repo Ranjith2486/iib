@@ -9,7 +9,7 @@
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="44,117" queueName="IN" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="MQ Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmAggregateControl.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="145,116" aggregateName="AGGRMQ" timeoutInterval="20" timeoutLocation="$LocalEnvironment/Aggregation/Timeout">
+      <nodes xmi:type="ComIbmAggregateControl.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="145,116" aggregateName="AGGRMQ" timeoutInterval="200" timeoutLocation="$LocalEnvironment/Aggregation/Timeout">
         <translation xmi:type="utility:ConstantString" string="Aggregate Control"/>
       </nodes>
       <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="315,56" queueName="OUT" request="true" replyToQMgr="QMAN" replyToQ="FinalQ">

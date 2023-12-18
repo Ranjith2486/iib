@@ -11,25 +11,50 @@ CREATE COMPUTE MODULE GroupComplete_Compute
 	
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		
---		DECLARE I INTEGER 1;
---		DECLARE sch_col REFERENCE TO InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR[I];
---		WHILE(LASTMOVE(sch_col)) DO
+	
+   	DECLARE sch_col REFERENCE TO InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR;
+
+
+			SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+			SET OutputRoot.XMLNSC.Item.cname=sch_col.Reply.Root.XMLNSC.College.CName;
+			SET OutputRoot.XMLNSC.Item.sname=sch_col.Reply.Root.XMLNSC.School.SName;
+			SET OutputRoot.XMLNSC.Item.cboard=sch_col.Reply.Root.XMLNSC.College.Board;
+			SET OutputRoot.XMLNSC.Item.sboard=sch_col.Reply.Root.XMLNSC.School.Board;
+--		
+--			
+--END IF;
+--IF  CONTAINS(sch_col.Reply.Root.XMLNSC,'School') THEN
+--	SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.SName;
+--	SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.Board;
+--END IF;
 --		SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
 --			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.College.CName;
 --			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.SName;
 --			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.College.Board;
 --			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.Board;
 --			SET I=I+1;
+--           
 --			MOVE sch_col NEXTSIBLING;
 --			
 --		END WHILE;
---        
-
-        SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
-		SET OutputRoot.XMLNSC.res.CName = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.College.CName;
-		SET OutputRoot.XMLNSC.res.SName = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.School.SName;
-		SET OutputRoot.XMLNSC.res.CBoard = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.College.Board;
-		SET OutputRoot.XMLNSC.res.SBoard = InputRoot.ComIbmGroupCompleteNode.Group.Replies.GSTR.Reply.Root.XMLNSC.School.Board;
+--      
+--       
+--        SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+--		SET OutputRoot.XMLNSC.res.CName = ref.College.CName;
+--		SET OutputRoot.XMLNSC.res.CBoard = ref.College.Board;
+--		SET OutputRoot.XMLNSC.res.SName = ref.School.SName;
+--		SET OutputRoot.XMLNSC.res.SBoard = ref.School.Board;
+      
+      
+--      		WHILE LASTMOVE(ref) DO
+--			SET OutputRoot.XMLNSC.Data.info[i].company=ref.Company;
+--			SET OutputRoot.XMLNSC.Data.info[i].position=ref.role;
+--			SET OutputRoot.XMLNSC.Data.info[i].address=ref.Address;
+--			SET OutputRoot.XMLNSC.Data.info[i].pincode=ref.Pincode;
+			 
 		
+          
+      
+      
 	END;
 END MODULE;

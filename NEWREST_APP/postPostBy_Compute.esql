@@ -20,16 +20,20 @@ CREATE COMPUTE MODULE postPostBy_Compute
 
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		DECLARE inRef REFERENCE TO InputRoot.JSON.Data.Std;
-		DECLARE std_name,std_role,qualification,salary CHARACTER;
-		SET std_name=inRef.name;
-		SET std_role=inRef.role;
-		SET qualification=inRef.qualification;
-		SET salary=inRef.salary;
-		INSERT INTO  Database.std(STD_NAME,STD_ROLE,QUALIFICATION,SALARY ) VALUES (std_name,std_role,qualification,salary);
-		IF SQLCODE=0 THEN
-			SET OutputRoot.JSON.Data.Res='Record Inserted Successfully';
-		ELSE
-			SET OutputRoot.JSON.Data.error='Not Inserted';
-		END IF;
+--		DECLARE std_name,std_role,qualification,salary CHARACTER;
+--		SET std_name=inRef.name;
+--		SET std_role=inRef.role;
+--		SET qualification=inRef.qualification;
+--		SET salary=inRef.salary;
+--		INSERT INTO  Database.std(STD_NAME,STD_ROLE,QUALIFICATION,SALARY ) VALUES (std_name,std_role,qualification,salary);
+--		IF SQLCODE=0 THEN
+--			SET OutputRoot.JSON.Data.Res='Record Inserted Successfully';
+--		ELSE
+--			SET OutputRoot.JSON.Data.error='Not Inserted';
+--		END IF;
+DECLARE Name CHARACTER;
+		SET Name=inRef.name;
+		DECLARE query CHARACTER 'select * from std where std_name=?';
+		SET OutputRoot.JSON.Data.Res=PASSTHRU(query.RANDB VALUES(Name));
 	END;
 END MODULE;

@@ -1,0 +1,27 @@
+
+
+CREATE COMPUTE MODULE UpdateProc_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE inRef REFERENCE TO InputRoot.XMLNSC.STD;
+		Declare name,name1,salary,salary1 CHARACTER;
+		SET name=inRef.Name;
+		SET salary=inRef.Salary;
+		CALL updateProc(name,name1,salary,salary1);
+		--CREATE FIELD OutputRoot.JSON.Data.OUT IDENTITY(JSON.Array)OUT;
+		
+		SET OutputRoot.JSON.Data.OUT.NAME=name;
+		SET OutputRoot.JSON.Data.OUT.SALARY=salary;
+		SET OutputRoot.JSON.Data.OUT.STATUS='Updated the Salary '||salary||' Successfully!';
+	END;
+END MODULE;
+CREATE PROCEDURE updateProc(IN name CHARACTER,OUT name1 CHARACTER,IN salary CHARACTER,OUT salary1 CHARACTER)
+LANGUAGE DATABASE
+EXTERNAL NAME "updateDetails";
+

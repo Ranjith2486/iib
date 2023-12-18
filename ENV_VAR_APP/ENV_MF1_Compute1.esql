@@ -21,6 +21,6 @@ CREATE COMPUTE MODULE ENV_MF1_Compute1
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		SET OutputRoot=InputRoot;
 		SET OutputRoot.MQMD.CorrelId=InputRoot.MQMD.MsgId;
-		SET OutputRoot.XMLNSC.RES=Environment.Variable.Data.Name;
+		--SET OutputRoot.XMLNSC.RES.Var=InputRoot.XMLNSC.Data.Name;
 	END;
 END MODULE;

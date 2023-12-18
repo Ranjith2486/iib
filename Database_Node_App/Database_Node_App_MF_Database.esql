@@ -16,6 +16,8 @@ CREATE DATABASE MODULE Database_Node_App_MF_Database
 		SET salary=inref.salary;
 		INSERT INTO Database.std (STD_NAME,STD_ROLE,QUALIFICATION,SALARY) VALUES (name,role,qualification,salary);
 		
+	
+		
 	END;
 
 END MODULE;

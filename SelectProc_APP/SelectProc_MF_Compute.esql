@@ -14,7 +14,7 @@ CREATE COMPUTE MODULE SelectProc_MF_Compute
 		DECLARE inRef REFERENCE TO InputRoot.XMLNSC;
 		Declare name,name1,role,qualification,salary CHARACTER;
 		SET name=inRef.Name;
-		CALL selectProc(name,role,qualification,salary,name1);
+		CALL selectProc(name,name1,role,qualification,salary);
 		--CREATE FIELD OutputRoot.JSON.Data.OUT IDENTITY(JSON.Array)OUT;
 		
 		SET OutputRoot.JSON.Data.OUT.NAME=name1;
@@ -23,6 +23,6 @@ CREATE COMPUTE MODULE SelectProc_MF_Compute
 		SET OutputRoot.JSON.Data.OUT.SALARY=salary;
 	END;
 END MODULE;
-CREATE PROCEDURE selectProc(IN name CHARACTER,OUT role CHARACTER,OUT qualification CHARACTER,OUT salary CHARACTER,OUT name1 CHARACTER)
+CREATE PROCEDURE selectProc(IN name CHARACTER,OUT name1 CHARACTER,OUT role CHARACTER,OUT qualification CHARACTER,OUT salary CHARACTER)
 LANGUAGE DATABASE
 EXTERNAL NAME "SELECT_PROCEDURE";

@@ -12,10 +12,10 @@
       <nodes xmi:type="ComIbmGroupScatter.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="165,144" GroupName="GSTR" GroupTimeout="5.0">
         <translation xmi:type="utility:ConstantString" string="Group Scatter"/>
       </nodes>
-      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="375,92" asyncResponseCorrelator="college_id" URLSpecifier="http://localhost:7800/service2" timeoutForServer="1500" AddRequestToGroup="true" GroupRequestFolderName="GSTR" GroupRequestTimeout="180.0">
+      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="375,92" asyncResponseCorrelator="college_id" URLSpecifier="http://localhost:7801/service2" timeoutForServer="1500" AddRequestToGroup="true" GroupRequestFolderName="GSTR" GroupRequestTimeout="180.0">
         <translation xmi:type="utility:ConstantString" string="HTTP Async Request"/>
       </nodes>
-      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="382,207" asyncResponseCorrelator="school_id" URLSpecifier="http://localhost:7800/service1" timeoutForServer="1500" AddRequestToGroup="true" GroupRequestFolderName="GSTR" GroupRequestTimeout="180.0">
+      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="382,207" asyncResponseCorrelator="school_id" URLSpecifier="http://localhost:7801/service1" timeoutForServer="1500" AddRequestToGroup="true" GroupRequestFolderName="GSTR" GroupRequestTimeout="180.0">
         <translation xmi:type="utility:ConstantString" string="HTTP Async Request1"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>

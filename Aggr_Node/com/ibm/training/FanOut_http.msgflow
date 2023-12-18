@@ -12,10 +12,10 @@
       <nodes xmi:type="ComIbmAggregateControl.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="136,116" aggregateName="AGGR" timeoutInterval="0" timeoutLocation="$LocalEnvironment/Aggregation/Timeout">
         <translation xmi:type="utility:ConstantString" string="Aggregate Control"/>
       </nodes>
-      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="301,60" asyncResponseCorrelator="Request1" URLSpecifier="http://localhost:7800/service1">
+      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="301,60" asyncResponseCorrelator="Request1" URLSpecifier="http://localhost:7801/service1">
         <translation xmi:type="utility:ConstantString" string="HTTP Async Request"/>
       </nodes>
-      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="299,169" asyncResponseCorrelator="Request2" URLSpecifier="http://localhost:7800/service2">
+      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="299,169" asyncResponseCorrelator="Request2" URLSpecifier="http://localhost:7801/service2">
         <translation xmi:type="utility:ConstantString" string="HTTP Async Request1"/>
       </nodes>
       <nodes xmi:type="ComIbmAggregateRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="454,65" folderName="School">
