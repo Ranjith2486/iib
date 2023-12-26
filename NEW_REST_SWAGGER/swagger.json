@@ -5,6 +5,29 @@
     "version" : "1.0.0",
     "description" : "NEW_REST_SWAGGER"
   },
-  "paths" : { },
+  "paths" : {
+    "/postPath" : {
+      "post" : {
+        "operationId" : "postPostPath",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a postPath",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "type" : "integer"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
   "basePath" : "/new_rest_swagger/v1"
 }

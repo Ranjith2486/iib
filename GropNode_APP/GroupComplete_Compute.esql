@@ -20,41 +20,7 @@ CREATE COMPUTE MODULE GroupComplete_Compute
 			SET OutputRoot.XMLNSC.Item.sname=sch_col.Reply.Root.XMLNSC.School.SName;
 			SET OutputRoot.XMLNSC.Item.cboard=sch_col.Reply.Root.XMLNSC.College.Board;
 			SET OutputRoot.XMLNSC.Item.sboard=sch_col.Reply.Root.XMLNSC.School.Board;
---		
---			
---END IF;
---IF  CONTAINS(sch_col.Reply.Root.XMLNSC,'School') THEN
---	SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.SName;
---	SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.Board;
---END IF;
---		SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
---			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.College.CName;
---			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.SName;
---			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.College.Board;
---			SET OutputRoot.XMLNSC.Item[I]=sch_col.Reply.Root.XMLNSC.School.Board;
---			SET I=I+1;
---           
---			MOVE sch_col NEXTSIBLING;
---			
---		END WHILE;
---      
---       
---        SET OutputLocalEnvironment.Destination.HTTP.RequestIdentifier =  InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
---		SET OutputRoot.XMLNSC.res.CName = ref.College.CName;
---		SET OutputRoot.XMLNSC.res.CBoard = ref.College.Board;
---		SET OutputRoot.XMLNSC.res.SName = ref.School.SName;
---		SET OutputRoot.XMLNSC.res.SBoard = ref.School.Board;
-      
-      
---      		WHILE LASTMOVE(ref) DO
---			SET OutputRoot.XMLNSC.Data.info[i].company=ref.Company;
---			SET OutputRoot.XMLNSC.Data.info[i].position=ref.role;
---			SET OutputRoot.XMLNSC.Data.info[i].address=ref.Address;
---			SET OutputRoot.XMLNSC.Data.info[i].pincode=ref.Pincode;
+    
 			 
-		
-          
-      
-      
 	END;
 END MODULE;

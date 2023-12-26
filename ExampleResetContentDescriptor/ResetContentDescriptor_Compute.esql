@@ -17,5 +17,6 @@ CREATE COMPUTE MODULE ResetContentDescriptor_Compute
 			SET OutputRoot.*[I] = InputRoot.*[I];
 			SET I = I + 1;
 		END WHILE;
+		
 	END;
 END MODULE;
