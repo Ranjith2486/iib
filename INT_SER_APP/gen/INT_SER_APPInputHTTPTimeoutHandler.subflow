@@ -3,16 +3,17 @@
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" useDefaults="true" udpSupport="true" nodeLayoutStyle="RECTANGLE">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <translation xmi:type="utility:TranslatableString" key="INT_SER_APPInputHTTPTimeoutHandler" bundleName="gen/INT_SER_APPInputHTTPTimeoutHandler" pluginId="INT_SER_APP"/>
-    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/INT_SER_APP/icons/full/obj16/INT_SER_APPInputHTTPTimeoutHandler"/>
-    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/INT_SER_APP/icons/full/obj30/INT_SER_APPInputHTTPTimeoutHandler"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/INT_SER_APP/icons/full/obj16/INT_SER_APPInputHTTPTimeoutHandler.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/INT_SER_APP/icons/full/obj30/INT_SER_APPInputHTTPTimeoutHandler.gif"/>
     <composition>
-      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="20,20">
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="70,22">
         <translation xmi:type="utility:TranslatableString" key="InTerminal.Input" bundleName="gen/INT_SER_APPInputHTTPTimeoutHandler" pluginId="INT_SER_APP"/>
       </nodes>
-      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="520,20">
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="407,28">
         <translation xmi:type="utility:TranslatableString" key="OutTerminal.Output" bundleName="gen/INT_SER_APPInputHTTPTimeoutHandler" pluginId="INT_SER_APP"/>
       </nodes>
     </composition>
     <propertyOrganizer/>
+    <stickyBoard/>
   </eClassifiers>
 </ecore:EPackage>

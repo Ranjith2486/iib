@@ -1,0 +1,35 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "RestApi_Definition",
+    "version": "1.0.0",
+    "description": "RestApi_Definition"
+  },
+  "servers": [
+    {
+      "url": "/restapi_definition/v1"
+    }
+  ],
+  "paths": {
+    "/Definition": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "ID": 893,
+                "NAME": "",
+                "ADDRESS": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

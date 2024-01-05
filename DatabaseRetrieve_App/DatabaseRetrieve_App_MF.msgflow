@@ -84,7 +84,7 @@
         </monitorEvents>
       </nodes>
       <nodes xmi:type="ComIbmDatabaseRetrieve.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="191,56" dataSourceName="{JDBC_P}:JDBC" copyMessage="true" sqlQuery="SELECT STD.STD_NAME, STD.STD_ROLE, STD.QUALIFICATION, STD.SALARY&#xA;FROM STD&#xA;WHERE STD.STD_NAME = ?&#xA;ORDER BY STD.STD_NAME ASC, STD.STD_ROLE ASC, STD.QUALIFICATION ASC, STD.SALARY ASC" tableNameComboValues="0,0,0,0,0,0~STD" columnNameComboValues="2,3,0,1,2,0~QUALIFICATION,SALARY,STD_NAME,STD_ROLE" operatorComboValues="0,0,0,0,2,0~="
-          valueTypeComboValues="0,0,0,0,2,0~Element" columnValueComboValues="2,3,0,1,0~STD.SALARY">
+          valueTypeComboValues="0,0,0,0,2,0~Element" columnValueComboValues="2,3,0,1,0~STD.STD_ROLE">
         <translation xmi:type="utility:ConstantString" string="Database Retrieve"/>
         <queryElements tableName="STD" columnName="STD_NAME" operator="ASC" valueType="None" value="None"/>
         <queryElements tableName="STD" columnName="STD_ROLE" operator="ASC" valueType="None" value="None"/>

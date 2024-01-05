@@ -7,10 +7,10 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/HttpAsyReq_YB/icons/full/obj16/HttpAsyReq_MF.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/HttpAsyReq_YB/icons/full/obj30/HttpAsyReq_MF.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="27,72" URLSpecifier="/httpasyreqin" useHTTPS="true">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="27,72" URLSpecifier="/httpasyreqin">
         <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="242,70" asyncResponseCorrelator="reqin" URLSpecifier="https://localhost:7844/reqin" protocol="TLSv1.2">
+      <nodes xmi:type="ComIbmHTTPAsyncRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="242,70" asyncResponseCorrelator="reqin" URLSpecifier="http://localhost:7801/reqin" protocol="TLSv1.2">
         <translation xmi:type="utility:ConstantString" string="HTTP Async Request"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="139,68" computeExpression="esql://routine/#HttpAsyReq_MF_Compute.Main" computeMode="all">

@@ -15,6 +15,7 @@ CREATE COMPUTE MODULE HttpAsyReq_MF_Compute
 		DECLARE msgToBlob BLOB;
 		SET msgToBlob=CAST(msg AS BLOB CCSID InputRoot.Properties.CodedCharSetId);
 		SET OutputLocalEnvironment.Destination.HTTP.UserContext=msgToBlob;
+		
 	END;
 END MODULE;
 
