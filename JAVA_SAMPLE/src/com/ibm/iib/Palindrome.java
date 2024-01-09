@@ -13,10 +13,10 @@ public class Palindrome {
 		
 		}
 		if(temp.equals(sum)) {
-			res="Palindrome number";
+			res=temp+" is a Palindrome number";
 		}
 		else {
-			res="not a palindrome number";
+			res=temp+" is not a palindrome number";
 		}
 		return res;
 		

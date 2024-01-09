@@ -1,0 +1,73 @@
+
+
+CREATE COMPUTE MODULE HttpInputHeader_MF_Compute1
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		   CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE b,Encode,decode CHARACTER 'hello';
+		SET Encode =BASE64ENCODE(b);
+		SET decode=BASE64DECODE(Encode);
+		SET OutputRoot.XMLNSC.Message.Encode=Encode;
+		SET OutputRoot.XMLNSC.Message.decode=decode;
+		SET OutputRoot.XMLNSC.Message.addInstances=AdditionalInstances;
+		
+		SET OutputRoot.XMLNSC.Message.commitInterval=CAST(CommitInterval AS INTEGER);
+		CASE
+			
+		WHEN BrokerVersion='12030' THEN
+			SET OutputRoot.XMLNSC.Message.brokerVersion='New Version';
+		ELSE
+			
+			SET OutputRoot.XMLNSC.Message.brokerVersion='Old Version';
+		END CASE;
+			lOG EVENT SEVERITY 1 CATALOG 'BIPMSG' MESSAGE 3001 VALUES ('REQUEST_LOG:');
+--        DECLARE i INTEGER 7;
+--        DECLARE number INTEGER 1;
+----        DECLARE ref REFERENCE TO OutputRoot.XMLNSC.res[number].Total1[>];
+--        WHILE number>=1 AND number<=10 DO
+--             IF OutputRoot.XMLNSC.res[number]='' THEN
+--             	SET OutputRoot.XMLNSC.res[number].Total1=i*number;
+--             ELSE
+--             	SET number=number+1;
+--             END IF;
+--        	--SET OutputRoot.XMLNSC.res[number].Total1=i*number; 
+--        	IF number=2 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total2=i*number;
+--        	END IF;
+--        	IF number=3 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total3=i*number;
+--        	END IF;
+--        	IF number=4 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total4=i*number;
+--        	END IF;
+--        	IF number=5 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total5=i*number;
+--        	END IF;
+--        	IF number=6 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total6=i*number;
+--        	END IF;
+--        	IF number=7 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total7=i*number;
+--        	END IF;
+--        	IF number=8 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total8=i*number;
+--        	END IF;
+--        	IF number=9 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total9=i*number;
+--        	END IF;	
+--        	IF number=10 THEN
+--        		SET OutputRoot.XMLNSC.res[number].Total9=i*number;
+--        	END IF;
+--        	--SET OutputRoot.XMLNSC.res[number].Total=i*number;
+--        	
+--        	
+--        END WHILE;
+--        
+
+	END;
+END MODULE;

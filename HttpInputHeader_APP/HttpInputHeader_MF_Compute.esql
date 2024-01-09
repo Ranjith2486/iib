@@ -1,0 +1,39 @@
+
+DECLARE ns NAMESPACE 'http://www.w3.org/2001/06/soap-envelope';
+CREATE COMPUTE MODULE HttpInputHeader_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		   CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+--		DECLARE locolhost,port,url CHARACTER;
+--		DECLARE httpInputHeaderRef REFERENCE TO InputRoot.HTTPInputHeader;
+--		
+--		SET url=REPLACE(REPLACE(TRIM('POST' FROM httpInputHeaderRef."X-Original-HTTP-Command"),'HTTP/1.1',''),' ','');
+--		
+--		SET locolhost=httpInputHeaderRef."X-Server-Name";
+--		SET port=httpInputHeaderRef."X-Server-Port";
+        DECLARE inref REFERENCE TO InputRoot.XMLNSC;
+        DECLARE encRef,ccsidRef INTEGER;
+        DECLARE systemsTraceAuditNumber,dateLocalTransaction,timeLocalTransaction CHARACTER;
+        SET Environment.domainDataRef=inref;
+        DECLARE envRef REFERENCE TO Environment.Variables;
+        CREATE LASTCHILD OF Environment AS envRef NAME 'Variables';
+        SET envRef.encRef=InputRoot.Properties.Encoding;
+        SET envRef.ccsidRef=InputRoot.Properties.CodedCharSetId;
+        DECLARE domainDataRef REFERENCE TO InputRoot.XMLNSC;
+        DECLARE domainName CHARACTER FIELDNAME(InputBody);
+        SET envRef.ReqIdentifier=CAST(InputLocalEnvironment.Destination.HTTP.RequestIdentifier AS CHARACTER);
+        SET OutputRoot.SOAP.ns:Envelope.(XMLNSC.NamespaceDecl)xmlns:ns=ns;
+        SET OutputRoot.SOAP.ns:Envelope.ns:Body.ns:Resoponse.ns:Data=Environment.domainDataRef.Data;
+        SET Environment.systemsTraceAuditNumber = CAST(CURRENT_TIME AS CHAR FORMAT 'hhmmss');
+		SET Environment.dateLocalTransaction = CAST(CURRENT_DATE AS CHAR FORMAT 'ddMMYY');
+		SET Environment.timeLocalTransaction = CAST(CURRENT_TIME AS CHAR FORMAT 'hhmmss');
+		SET OutputLocalEnvironment=InputLocalEnvironment;
+		
+	END;
+END MODULE;
+
