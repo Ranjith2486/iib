@@ -1,0 +1,117 @@
+BROKER SCHEMA Exc_Dashen
+DECLARE DSN EXTERNAL CHARACTER;
+DECLARE LOG_CONFIG_PATH EXTERNAL CHARACTER 'C:\Log4j\Log4jConfigurationFile.xml';
+CREATE COMPUTE MODULE Exc_Dashen_ESQL
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE rc BOOLEAN FALSE;
+		CALL initLog4j(LOG_CONFIG_PATH) INTO rc;
+		IF ( rc = FALSE ) THEN
+			DECLARE msg CHARACTER ;
+			--SET Environment.Variables.Log4j.ErrorMsg = LOG4J_INIT_ERROR_MSG;		
+		END IF;
+		CALL writeToLogFile(MessageFlowLabel, 'ACE-LOG', 'DEGUB','..............Flow Entered into Exception Handling...........') INTO rc;
+		DECLARE excpRef REFERENCE TO InputExceptionList.*[1];
+
+		DECLARE insertRef REFERENCE TO InputExceptionList.*[1];
+		DECLARE exceptiondesc,inputChar,logdata CHARACTER '';
+		DECLARE domainDataRef REFERENCE TO InputRoot;
+		DECLARE domainFldName CHARACTER FIELDNAME(InputBody);
+		DECLARE ccidRef INTEGER InputRoot.Properties.CodedCharSetId;
+		DECLARE encodeRef INTEGER InputRoot.Properties.Encoding;
+		DECLARE systemsTraceAuditNumber,dateLocalTransaction,retrievalReferenceNumber CHARACTER '';
+		/*=========== Setting the Input Headers in Environment============*/
+		DECLARE EnRef REFERENCE To Environment.Variables;
+		CREATE LASTCHILD OF Environment AS EnRef NAME 'Variables';
+		SET EnRef.Properties = InputRoot.Properties;
+		SET EnRef.MQMD = InputRoot.MQMD;
+		SET EnRef.MQRFH2 = InputRoot.MQRFH2;
+		SET EnRef.HTTPHEADERS= InputRoot.HTTPInputHeader;
+		/*=========== Creating the Exp desc as XML Format ================*/
+		CREATE LASTCHILD Of OutputRoot DOMAIN 'XMLNSC';
+		CREATE LASTCHILD Of OutputRoot.XMLNSC NAME 'ExceptionDetails';
+		DECLARE outRef REFERENCE TO OutputRoot.XMLNSC.ExceptionDetails;
+		DECLARE flowName CHARACTER excpRef.Name;
+		CALL getExceptionDesc(excpRef,insertRef,outRef);
+		
+		SET Environment.Variables.ExceptionData = OutputRoot.XMLNSC.ExceptionDetails; --Here changed to get the exact exception information
+		SET Environment.Variables.excpNumber= OutputRoot.XMLNSC.ExceptionDetails.excpNumber;
+		SET Environment.Variables.excpText = OutputRoot.XMLNSC.ExceptionDetails.excpText;
+		SET Environment.Variables.excpType = OutputRoot.XMLNSC.ExceptionDetails.excpType;
+		DECLARE exceptionTxt CHARACTER Environment.Variables.ExceptionData.excpText;
+		SET Environment.Variables.Excep = OutputRoot.XMLNSC.ExceptionDetails;
+		PROPAGATE TO TERMINAL 'out' DELETE NONE;	
+		
+		
+		DECLARE InsertQry CHARACTER;
+			DECLARE DbInsert,Tran ROW;			
+			SET Tran.Record[]= PASSTHRU('SELECT EX_LOG_ID_SEQ.NEXTVAL FROM DUAL');
+			DECLARE Tran_ID INTEGER CAST(Tran.Record[1].NEXTVAL AS  INTEGER);		
+		SET InsertQry = 'INSERT INTO EXCEPTION_LOGS (EX_LOG_ID,EX_NAME,EX_DATE,EX_DESC,EX_TYPE,EX_CODE,FLOW_NAME,NODE_NAME,CREATED_BY,CREATED_DATE)
+							VALUES(?,?,?,?,?,?,?,?,?,?)';
+		
+		SET DbInsert.Records[]=PASSTHRU(InsertQry TO Database.{DSN} 
+		VALUES(Tran_ID,Environment.Variables.Excep.Ex_Name,CURRENT_DATE,Environment.Variables.Excep.Ex_Desc,Environment.Variables.Excep.ExType,
+		Environment.Variables.Excep.ExNumber,Environment.Variables.Excep.ExMessageFlow,ExecutionGroupLabel,'ESB-USER',CURRENT_TIMESTAMP));
+		CALL writeToLogFile(MessageFlowLabel, 'ACE-LOG', 'DEGUB','..............Exception Logged and Exit the Flow...........') INTO rc;
+--		CASE
+--			
+--		WHEN EXISTS(EnRef.HTTPHEADERS[])  THEN
+--			
+--		
+--			PROPAGATE TO TERMINAL 'out1';
+--		
+--		END CASE; 
+		RETURN FALSE;
+	END;
+
+
+	CREATE PROCEDURE getExceptionDesc(IN excpRef REFERENCE,IN insertRef REFERENCE, INOUT outRef REFERENCE)
+	BEGIN
+		DECLARE CR CHARACTER CAST(CAST('X''0A''' AS BLOB) AS CHARACTER CCSID COALESCE(InputRoot.Properties.CodedCharSetId,1208));
+		DECLARE messageText CHARACTER '';
+		DECLARE exceptionName CHARACTER '';
+		DECLARE timoutField REFERENCE TO InputLocalEnvironment;
+		SET outRef.ExApp =ApplicationLabel;
+		SET outRef.ExMessageFlow = MessageFlowLabel;
+		SET outRef.ExLable = SUBSTRING(excpRef.Label AFTER '.');
+		SET outRef.ExType = FIELDNAME(excpRef);
+		SET exceptionName = FIELDNAME(excpRef);
+		SET outRef.ExNumber = excpRef.Number;
+		
+		
+		MOVE excpRef LASTCHILD;
+
+		X:WHILE LASTMOVE(excpRef) DO
+
+		CASE
+
+		WHEN FIELDNAME(excpRef) <> 'Insert' THEN
+			MOVE excpRef LASTCHILD;
+
+		WHEN FIELDNAME(excpRef) = 'Insert' THEN
+			SET outRef.Ex_Desc = excpRef.Text;
+			MOVE excpRef PREVIOUSSIBLING;
+			SET outRef.Ex_Desc = outRef.Ex_Desc ||CR ||COALESCE(excpRef.Text,'.');
+			MOVE excpRef PARENT;
+			SET outRef.Ex_Name = FIELDNAME(excpRef);
+			SET Environment.num=excpRef.Number;
+			SET outRef.Ex_Code = SUBSTRING(excpRef.Catalog FROM 1 FOR 3) || CAST(excpRef.Number AS CHARACTER);
+			SET outRef.Ex_Desc = 'ParentExcp: '||excpRef.Text||CR||'ChildExcp: ' || outRef.Ex_Desc;
+			LEAVE X;
+		END CASE;
+	END WHILE;
+
+END;	
+
+
+END MODULE;
+CREATE FUNCTION writeToLogFile( IN COMPONENT_NAME CHARACTER,IN LOGGER_NAME CHARACTER, IN LEVEL CHARACTER, IN TEXT CHARACTER )
+RETURNS BOOLEAN
+LANGUAGE JAVA
+EXTERNAL NAME "com.ibm.broker.IAM3.Log4jNode.log";
+
+CREATE FUNCTION initLog4j( IN CONFIG_FILE_NAME CHARACTER)
+RETURNS BOOLEAN
+LANGUAGE JAVA
+EXTERNAL NAME "com.ibm.broker.IAM3.Log4jNode.initLog4j";
