@@ -20,6 +20,7 @@ public class Encryption {
             Encryption.key = sha.digest(Encryption.key);
             Encryption.key = Arrays.copyOf(Encryption.key, 16);
             Encryption.secretkey = new SecretKeySpec(Encryption.key, "AES");
+            
         }
         catch (NoSuchAlgorithmException ex) {}
         catch (UnsupportedEncodingException ex2) {}

@@ -1,10 +1,10 @@
 package com.ibm.eidiko;
 
-
 public class Operations {
-	public static long opMethod(long val1,long val2) {
-		long v3=val1+val2;
+	public static Long opMethod(Long val1,Long val2) {
+		Long v3=val1+val2;
 		return v3;
 	}
 
 }
+
