@@ -13,13 +13,16 @@ CREATE COMPUTE MODULE GetStd_SF_Compute
 
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		DECLARE inref REFERENCE TO InputRoot.SOAP.Body.*:GetStudentRequest.*:name;
-		DECLARE DBFetch ROW;
-		SET DBFetch.Results[]=select S from Database.SYSTEM.std AS S where S.NAME=inref;
+		DECLARE DBFetch ROW ;
+	   
+		DECLARE query CHARACTER 'select * from std where STD_NAME=?';
+		SET DBFetch.Results=PASSTHRU(query.RANDB Values(inref));
+		
 		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:soapenv=soapenv1;
 		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:mes=mes1;
-		
-		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:name=DBFetch.Results.NAME;
-		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:role=DBFetch.Results.ROLE;
+	
+		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:name=DBFetch.Results.STD_NAME;
+		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:role=DBFetch.Results.STD_ROLE;
 		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:qualification=DBFetch.Results.QUALIFICATION;
 		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:salary=DBFetch.Results.SALARY;
 	END;

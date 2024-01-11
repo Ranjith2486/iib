@@ -1,0 +1,63 @@
+BROKER SCHEMA NewExceptionLib
+DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+DECLARE mes NAMESPACE 'http://tempuri.org/messageset';
+
+CREATE COMPUTE MODULE NewException_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE Error Row;
+		DECLARE errorRef REFERENCE TO Error;
+		CALL ExcProcedure(InputExceptionList,errorRef);
+		If(FIELDNAME(InputRoot.[<])='XMLNSC') THEN
+		CREATE FIELD OutputRoot.XMLNSC.ErrorDetails;
+		DECLARE OutRef REFERENCE TO OutputRoot.XMLNSC.ErrorDetails;
+		SET OutRef.ErrorType=errorRef.ErrorType;
+		SET OutRef.ErrorCode=errorRef.ErrorCode;
+		SET OutRef.ErrorMessage=errorRef.ErrorMessage;
+		SET OutRef.ErrorLabel=errorRef.ErrorLabel;
+		SET OutRef.TimeStamp=CAST(CURRENT_TIMESTAMP AS Char FORMAT 'dd-MM-YYYY HH:MM:SS');
+		ELSEIF(FIELDNAME(InputRoot.[<])='JSON') THEN
+		CREATE FIELD OutputRoot.JSON.Data.ErrorDetails;
+		DECLARE OutRef1 REFERENCE TO OutputRoot.JSON.Data.ErrorDetails;
+		SET OutRef1.ErrorType=errorRef.ErrorType;
+		SET OutRef1.ErrorCode=errorRef.ErrorCode;
+		SET OutRef1.ErrorMessage=errorRef.ErrorMessage;
+		SET OutRef1.ErrorLabel=errorRef.ErrorLabel;
+		SET OutRef1.TimeStamp=CAST(CURRENT_TIMESTAMP AS Char FORMAT 'dd-MM-YYYY HH:MM:SS');
+		ELSEIF(FIELDNAME(InputRoot.[<])='SOAP') THEN
+		--SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:mes=mes;
+--		CREATE Field OutputRoot.SOAP.soapenv:Body.soapenv:Fault;
+--		DECLARE OutRef2 REFERENCE TO OutputRoot.SOAP.soapenv:Body.soapenv:Fault;
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultcode=errorRef.ErrorCode;
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultstring='Exception while processing';
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultactor='This is faultactor';
+		--SET OutRef2.detail.ErrorType=errorRef.ErrorType;
+		SET OutputRoot.XMLNSC.soapenv:Fault.detail.mes:Fault.mes:FaultText=errorRef.ErrorMessage;
+		--SET OutRef2.detail.ErrorLabel=errorRef.ErrorLabel;
+		END IF;
+	END;
+	CREATE PROCEDURE ExcProcedure(IN InputExceptionList REFERENCE,IN ErrorRef REFERENCE)
+	BEGIN
+		DECLARE inExRef REFERENCE TO InputExceptionList.[1];
+		WHILE ENDSWITH(FIELDNAME(inExRef),'Exception') DO
+			SET ErrorRef.ErrorCode=inExRef.Number;
+			SET ErrorRef.ErrorType=FIELDNAME(inExRef);
+			SET ErrorRef.ErrorMessage=inExRef.Text;
+			For insertRef AS inExRef.Insert[] DO
+			SET ErrorRef.ErrorMessage=ErrorRef.ErrorMessage ||',' ||insertRef.Text||'. ';
+			END FOR;
+			If(inExRef.Label <>'') THEN
+			SET ErrorRef.ErrorLabel=inExRef.Label;
+			END IF; 
+			Move inExRef Lastchild;
+		END WHILE;
+	END;
+END MODULE;
