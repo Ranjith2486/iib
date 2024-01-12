@@ -20,10 +20,15 @@ CREATE COMPUTE MODULE GetStd_SF_Compute
 		
 		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:soapenv=soapenv1;
 		SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:mes=mes1;
-	
-		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:name=DBFetch.Results.STD_NAME;
+	   IF DBFetch.Results.STD_NAME <>'' THEN
+	   	SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:name=DBFetch.Results.STD_NAME;
 		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:role=DBFetch.Results.STD_ROLE;
 		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:qualification=DBFetch.Results.QUALIFICATION;
 		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:salary=DBFetch.Results.SALARY;
+	   ELSE
+	   	SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:Result='No record found found with that data!!!!';
+	   END IF;
+		
+		
 	END;
 END MODULE;
