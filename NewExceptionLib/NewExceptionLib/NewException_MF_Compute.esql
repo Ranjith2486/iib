@@ -27,6 +27,7 @@ CREATE COMPUTE MODULE NewException_MF_Compute
 		ELSEIF(FIELDNAME(InputRoot.[<])='JSON') THEN
 		CREATE FIELD OutputRoot.JSON.Data.ErrorDetails;
 		DECLARE OutRef1 REFERENCE TO OutputRoot.JSON.Data.ErrorDetails;
+		
 		SET OutRef1.ErrorType=errorRef.ErrorType;
 		SET OutRef1.ErrorCode=errorRef.ErrorCode;
 		SET OutRef1.ErrorMessage=errorRef.ErrorMessage;

@@ -26,7 +26,7 @@ CREATE COMPUTE MODULE GetStd_SF_Compute
 		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:qualification=DBFetch.Results.QUALIFICATION;
 		SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:salary=DBFetch.Results.SALARY;
 	   ELSE
-	   	SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:Result='No record found found with that data!!!!';
+	   	SET OutputRoot.SOAP.Body.mes1:GetStudentResponse.mes1:Result='No record found with that Name :'||inref;
 	   END IF;
 		
 		

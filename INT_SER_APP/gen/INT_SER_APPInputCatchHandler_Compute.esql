@@ -1,0 +1,70 @@
+BROKER SCHEMA gen
+DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+--DECLARE mes NAMESPACE 'http://tempuri.org/messageset';
+CREATE COMPUTE MODULE INT_SER_APPInputCatchHandler_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+ 	END;
+
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE exref REFERENCE TO InputExceptionList.[1];
+		DECLARE error ROW;
+		DECLARE erroref REFERENCE TO error;
+		CALL exProc(exref,erroref);
+		IF FIELDNAME(InputRoot.[<])='XMLNSC' THEN
+--			CREATE FIELD OutputRoot.XMLNSC.ExDetails;
+--			DECLARE eref REFERENCE  TO OutputRoot.XMLNSC.ExDetails;
+--			SET eref.Ex_Number=erroref.Number;
+--			SET eref.Ex_Type=erroref.errortype;
+--			SET eref.Ex_Text=erroref.errormessage;
+--			SET eref.Ex_Label=erroref.errorlabel;
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultcode=erroref.Number;
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultstring='Exception while processing';
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultactor='This is faultactor';
+		--SET OutRef2.detail.ErrorType=errorRef.ErrorType;
+		SET OutputRoot.XMLNSC.soapenv:Fault.detail.Fault.FaultText=erroref.errormessage;
+		
+		ELSEIF(FIELDNAME(InputRoot.[<])='JSON') THEN
+		CREATE FIELD OutputRoot.JSON.Data.ErrorDetails;
+		DECLARE eref1 REFERENCE TO OutputRoot.JSON.Data.ErrorDetails;
+		
+		SET eref1.Ex_Number=erroref.Number;
+		SET eref1.Ex_Type=erroref.errortype;
+		SET eref1.Ex_Text=erroref.errormessage;
+		SET eref1.Ex_Label=erroref.errorlabel;
+		SET eref1.TimeStamp=CAST(CURRENT_TIMESTAMP AS Char FORMAT 'dd-MM-YYYY HH:MM:SS');
+		ELSEIF(FIELDNAME(InputRoot.[<])='SOAP') THEN
+		--SET OutputRoot.SOAP.Context.Namespace.(SOAP.NamespaceDecl)xmlns:mes=mes;
+--		CREATE Field OutputRoot.SOAP.soapenv:Body.soapenv:Fault;
+--		DECLARE OutRef2 REFERENCE TO OutputRoot.SOAP.soapenv:Body.soapenv:Fault;
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultcode=erroref.Number;
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultstring='Exception while processing';
+		SET OutputRoot.XMLNSC.soapenv:Fault.faultactor='This is faultactor';
+		--SET OutRef2.detail.ErrorType=errorRef.ErrorType;
+		SET OutputRoot.XMLNSC.soapenv:Fault.detail.Fault.FaultText=erroref.errormessage;
+		--SET OutRef2.detail.ErrorLabel=errorRef.ErrorLabel;
+		END IF;
+		
+	
+	END;
+	CREATE PROCEDURE exProc (IN exref REFERENCE,IN erroref REFERENCE)
+BEGIN
+	DECLARE exref REFERENCE TO InputExceptionList.[1];
+	WHILE ENDSWITH(FIELDNAME(exref),'Exception') DO
+		SET erroref.Number=exref.Number;
+		SET erroref.errortype=FIELDNAME(exref);
+		SET erroref.errormessage=exref.Text;
+		FOR insertref AS exref.Insert[]  DO
+			SET erroref.errormessage=erroref.errormessage||' ' ||insertref.Text||' .';
+		END FOR;
+		IF exref.Label<>'' THEN
+			SET erroref.errorlabel=exref.Label;
+		END IF; 
+		Move exref LASTCHILD;
+	END WHILE;
+	END;
+END MODULE;

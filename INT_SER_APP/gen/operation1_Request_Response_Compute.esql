@@ -11,7 +11,7 @@ CREATE COMPUTE MODULE operation1_Request_Response_Compute
 	END;
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		DECLARE inref REFERENCE TO InputRoot.XMLNSC.ns:operation1.input1;
-		DECLARE query CHARACTER 'select * from std where name=?';
+		DECLARE query CHARACTER 'select * from std where STD_NAME=?';
 	    SET OutputRoot.XMLNSC.ns:operation1Response.output1.studentDetails=PASSTHRU(query VALUES(inref));
 		
 	END;
